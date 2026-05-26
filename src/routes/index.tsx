@@ -1,26 +1,175 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import {
+  Fuel,
+  Wrench,
+  ShieldCheck,
+  Gauge,
+  Hammer,
+  Droplets,
+  ArrowRight,
+  CheckCircle2,
+  Phone,
+} from "lucide-react";
+import hero from "@/assets/hero-station.jpg";
 
 export const Route = createFileRoute("/")({
-  component: Index,
+  component: Home,
+  head: () => ({
+    meta: [
+      { title: "D'Zizi Petroleum | Petrol Station Equipment & Installation in Kenya" },
+      {
+        name: "description",
+        content:
+          "Kenya's trusted petroleum partner. Equipment supply, petrol station installation, hydrotesting, calibration and maintenance — done right, first time.",
+      },
+      { property: "og:title", content: "D'Zizi Petroleum Services Limited" },
+      { property: "og:url", content: "/" },
+    ],
+    links: [{ rel: "canonical", href: "/" }],
+  }),
 });
 
-// IMPORTANT: Replace this placeholder. For sites with multiple pages (About, Services, Contact, etc.),
-// create separate route files (about.tsx, services.tsx, contact.tsx) — don't put all pages in this file.
-function PlaceholderIndex() {
+const services = [
+  { icon: Fuel, title: "Petroleum Equipment Sales", desc: "Underground & above-ground tanks, pumps, compressors, air gauges and generators." },
+  { icon: Droplets, title: "Hydrotesting", desc: "Pressure testing to guarantee tank integrity and EPRA-aligned safety." },
+  { icon: Hammer, title: "Installation Services", desc: "Suction, breather and offloading lines installed by certified technicians." },
+  { icon: Wrench, title: "Station Maintenance", desc: "Keep your forecourt operational, compliant and profitable around the clock." },
+  { icon: Gauge, title: "Tank Calibration", desc: "Precision wet & dry calibration for accurate dispensing and compliance." },
+  { icon: ShieldCheck, title: "Commercial Site Maintenance", desc: "Maintenance contracts for depots, industrial yards and fleet sites." },
+];
+
+function Home() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
+    <div>
+      {/* Hero */}
+      <section className="relative overflow-hidden">
+        <div className="mx-auto grid max-w-7xl gap-10 px-4 py-12 sm:px-6 md:grid-cols-2 md:items-center md:py-20">
+          <div className="fade-up">
+            <span className="inline-flex items-center gap-2 rounded-full border border-border bg-white/70 px-3 py-1 text-xs font-semibold text-primary">
+              <span className="h-2 w-2 rounded-full bg-primary" /> Trusted across Kenya
+            </span>
+            <h1 className="mt-4 text-4xl font-extrabold leading-tight text-foreground sm:text-5xl md:text-6xl">
+              Petroleum equipment & service —{" "}
+              <span className="brand-gradient-text">done right, first time.</span>
+            </h1>
+            <p className="mt-5 max-w-xl text-base text-muted-foreground sm:text-lg">
+              D'Zizi Petroleum Services Limited supplies, installs and maintains
+              petrol station equipment across Kenya — from Nairobi to Mombasa,
+              Kisumu, Eldoret and beyond.
+            </p>
+            <div className="mt-7 flex flex-wrap gap-3">
+              <Link
+                to="/contact"
+                className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-sm transition hover:opacity-90"
+              >
+                Request a Quote <ArrowRight className="h-4 w-4" />
+              </Link>
+              <a
+                href="tel:+254702587919"
+                className="inline-flex items-center gap-2 rounded-full border border-border bg-white px-6 py-3 text-sm font-semibold text-foreground transition hover:border-primary hover:text-primary"
+              >
+                <Phone className="h-4 w-4" /> +254 702 587 919
+              </a>
+            </div>
+            <div className="mt-8 grid max-w-md grid-cols-2 gap-4 text-sm">
+              {[
+                "EPRA-aligned safety",
+                "Certified installers",
+                "Nationwide coverage",
+                "Rapid response",
+              ].map((t) => (
+                <div key={t} className="flex items-center gap-2 text-foreground/80">
+                  <CheckCircle2 className="h-4 w-4 text-primary" /> {t}
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="fade-up relative">
+            <div className="absolute -inset-3 -z-10 rounded-3xl bg-gradient-to-tr from-secondary/40 to-primary/30 blur-2xl" />
+            <img
+              src={hero}
+              alt="Modern petrol station forecourt at dusk"
+              className="aspect-[4/3] w-full rounded-3xl object-cover shadow-xl"
+              loading="eager"
+              fetchPriority="high"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Services */}
+      <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6">
+        <div className="flex items-end justify-between gap-4">
+          <div>
+            <p className="text-sm font-semibold uppercase tracking-wider text-primary">What we do</p>
+            <h2 className="mt-2 text-3xl font-bold sm:text-4xl">Services that keep stations running</h2>
+          </div>
+          <Link to="/services" className="hidden text-sm font-semibold text-primary hover:underline sm:inline">
+            View all →
+          </Link>
+        </div>
+        <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {services.map(({ icon: Icon, title, desc }) => (
+            <div
+              key={title}
+              className="group relative overflow-hidden rounded-2xl border border-border bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg"
+            >
+              <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary transition group-hover:bg-primary group-hover:text-primary-foreground">
+                <Icon className="h-6 w-6" />
+              </div>
+              <h3 className="text-lg font-semibold">{title}</h3>
+              <p className="mt-2 text-sm text-muted-foreground">{desc}</p>
+              <div className="absolute right-0 top-0 h-1 w-0 bg-gradient-to-r from-primary to-secondary transition-all duration-500 group-hover:w-full" />
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Why us */}
+      <section className="bg-brand-ink py-16 text-white">
+        <div className="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 md:grid-cols-4">
+          {[
+            { k: "10+", v: "Years industry experience" },
+            { k: "50+", v: "Stations served" },
+            { k: "24/7", v: "Emergency response" },
+            { k: "100%", v: "Compliance focus" },
+          ].map((s) => (
+            <div key={s.v}>
+              <div className="text-4xl font-extrabold text-secondary">{s.k}</div>
+              <div className="mt-1 text-sm text-white/70">{s.v}</div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6">
+        <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-primary to-[oklch(0.45_0.18_25)] p-10 text-white shadow-xl md:p-14">
+          <div className="absolute -right-20 -top-20 h-64 w-64 rounded-full bg-secondary/30 blur-3xl" />
+          <h2 className="max-w-2xl text-3xl font-bold sm:text-4xl">
+            Building a new station or upgrading an existing one?
+          </h2>
+          <p className="mt-3 max-w-2xl text-white/85">
+            Talk to our engineers today — we'll scope your project, recommend the right equipment and deliver end-to-end.
+          </p>
+          <div className="mt-6 flex flex-wrap gap-3">
+            <Link
+              to="/contact"
+              className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-primary transition hover:bg-secondary hover:text-foreground"
+            >
+              Get a free consultation <ArrowRight className="h-4 w-4" />
+            </Link>
+            <a
+              href="https://wa.me/254702587919"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-full border border-white/40 px-6 py-3 text-sm font-semibold text-white transition hover:bg-white/10"
+            >
+              WhatsApp us
+            </a>
+          </div>
+        </div>
+      </section>
     </div>
   );
-}
-
-function Index() {
-  return <PlaceholderIndex />;
 }
