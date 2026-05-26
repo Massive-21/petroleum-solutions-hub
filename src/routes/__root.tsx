@@ -7,6 +7,7 @@ import {
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
+import { SiteLayout } from "@/components/SiteLayout";
 
 import appCss from "../styles.css?url";
 
@@ -72,19 +73,36 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "D'Zizi Petroleum Services Limited | Petroleum Equipment Kenya" },
+      {
+        name: "description",
+        content:
+          "D'Zizi Petroleum Services Limited — Kenya's trusted supplier and installer of petroleum equipment: tanks, pumps, hydrotesting, calibration and petrol station maintenance.",
+      },
+      { name: "author", content: "D'Zizi Petroleum Services Limited" },
+      { name: "keywords", content: "petroleum equipment Kenya, petrol station installation Nairobi, fuel tank calibration Kenya, hydrotesting Kenya, fuel pump suppliers Kenya, petrol station maintenance" },
+      { property: "og:title", content: "D'Zizi Petroleum Services Limited" },
+      { property: "og:description", content: "Petroleum equipment, installation, hydrotesting and maintenance across Kenya." },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
+      { property: "og:locale", content: "en_KE" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
+      { rel: "stylesheet", href: appCss },
+      { rel: "preconnect", href: "https://gteipjszrtnvkabqhaiq.supabase.co" },
+    ],
+    scripts: [
       {
-        rel: "stylesheet",
-        href: appCss,
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "LocalBusiness",
+          name: "D'Zizi Petroleum Services Limited",
+          telephone: "+254702587919",
+          areaServed: "KE",
+          address: { "@type": "PostalAddress", addressLocality: "Nairobi", addressCountry: "KE" },
+          url: "/",
+        }),
       },
     ],
   }),
@@ -113,7 +131,7 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <Outlet />
+      <SiteLayout />
     </QueryClientProvider>
   );
 }
