@@ -49,12 +49,12 @@ function Home() {
               <span className="h-2 w-2 rounded-full bg-primary" /> Trusted across Kenya
             </span>
             <h1 className="mt-4 text-4xl font-extrabold leading-tight text-foreground sm:text-5xl md:text-6xl">
-              Petroleum equipment & service —{" "}
-              <span className="brand-gradient-text">done right, first time.</span>
+              Powering Kenya's{" "}
+              <span className="brand-gradient-text">Fuel Infrastructure</span>
             </h1>
             <p className="mt-5 max-w-xl text-base text-muted-foreground sm:text-lg">
               D'Zizi Petroleum Services Limited supplies, installs and maintains
-              petrol station equipment across Kenya — from Nairobi to Mombasa,
+              petrol station equipment across Kenya - from Nairobi to Mombasa,
               Kisumu, Eldoret and beyond.
             </p>
             <div className="mt-7 flex flex-wrap gap-3">
