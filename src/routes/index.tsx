@@ -11,6 +11,12 @@ import {
   Phone,
 } from "lucide-react";
 import hero from "@/assets/hero-station.jpg";
+import petrolStation from "@/assets/projects/petrol-station.jpg";
+import hydrotestingImg from "@/assets/projects/hydrotesting.jpg";
+import installationImg from "@/assets/projects/installation.jpg";
+import maintenanceImg from "@/assets/projects/maintenance.jpg";
+import calibrationImg from "@/assets/projects/calibration.jpg";
+import overhaulImg from "@/assets/projects/overhaul.jpg";
 
 export const Route = createFileRoute("/")({
   component: Home,
@@ -30,12 +36,12 @@ export const Route = createFileRoute("/")({
 });
 
 const services = [
-  { icon: Fuel, title: "Petroleum Equipment Sales", desc: "Underground & above-ground tanks, pumps, compressors, air gauges and generators." },
-  { icon: Droplets, title: "Hydrotesting", desc: "Pressure testing to guarantee tank integrity and EPRA-aligned safety." },
-  { icon: Hammer, title: "Installation Services", desc: "Suction, breather and offloading lines installed by certified technicians." },
-  { icon: Wrench, title: "Station Maintenance", desc: "Keep your forecourt operational, compliant and profitable around the clock." },
-  { icon: Gauge, title: "Tank Calibration", desc: "Precision wet & dry calibration for accurate dispensing and compliance." },
-  { icon: ShieldCheck, title: "Commercial Site Maintenance", desc: "Maintenance contracts for depots, industrial yards and fleet sites." },
+  { icon: Fuel, title: "Petroleum Equipment Sales", desc: "Underground & above-ground tanks, pumps, compressors, air gauges and generators.", img: petrolStation },
+  { icon: Droplets, title: "Hydrotesting", desc: "Pressure testing to guarantee tank integrity and EPRA-aligned safety.", img: hydrotestingImg },
+  { icon: Hammer, title: "Installation Services", desc: "Suction, breather and offloading lines installed by certified technicians.", img: installationImg },
+  { icon: Wrench, title: "Station Maintenance", desc: "Keep your forecourt operational, compliant and profitable around the clock.", img: maintenanceImg },
+  { icon: Gauge, title: "Tank Calibration", desc: "Precision wet & dry calibration for accurate dispensing and compliance.", img: calibrationImg },
+  { icon: ShieldCheck, title: "Commercial Site Maintenance", desc: "Maintenance contracts for depots, industrial yards and fleet sites.", img: overhaulImg },
 ];
 
 function Home() {
@@ -109,11 +115,14 @@ function Home() {
           </Link>
         </div>
         <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {services.map(({ icon: Icon, title, desc }) => (
+          {services.map(({ icon: Icon, title, desc, img }) => (
             <div
               key={title}
               className="group relative overflow-hidden rounded-2xl border border-border bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg"
             >
+              <div className="mb-4 overflow-hidden rounded-lg">
+                <img src={img} alt={title} className="h-40 w-full object-cover" />
+              </div>
               <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary transition group-hover:bg-primary group-hover:text-primary-foreground">
                 <Icon className="h-6 w-6" />
               </div>
