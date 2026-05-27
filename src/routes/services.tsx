@@ -1,10 +1,10 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import hydro from "@/assets/projects/hydrotesting.jpg";
-import tank from "@/assets/projects/tank.jpg";
-import install from "@/assets/projects/installation.jpg";
-import maint from "@/assets/projects/maintenance.jpg";
+import hydro from "@/assets/projects/sales.jpg";
+import tank from "@/assets/projects/hydrotesting.jpg";
+import install from "@/assets/projects/install.jpg";
+import maint from "@/assets/projects/inst.jpeg";
 import station from "@/assets/projects/petrol-station.jpg";
-import calib from "@/assets/projects/calibration.jpg";
+import calib from "@/assets/projects/commercial.jpg";
 
 export const Route = createFileRoute("/services")({
   component: Services,
@@ -69,7 +69,7 @@ const items = [
     ],
   },
   {
-    img: calib,
+    img: station,
     title: "Tank Calibration",
     intro: "Precision calibration that protects your margins.",
     bullets: [
@@ -80,7 +80,7 @@ const items = [
     ],
   },
   {
-    img: station,
+    img: calib,
     title: "Commercial Site Maintenance",
     intro: "For depots, factories, fleet yards and farms.",
     bullets: [

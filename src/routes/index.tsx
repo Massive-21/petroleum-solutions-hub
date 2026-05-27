@@ -10,13 +10,13 @@ import {
   CheckCircle2,
   Phone,
 } from "lucide-react";
-import hero from "@/assets/hero-station.jpg";
-import petrolStation from "@/assets/projects/petrol-station.jpg";
+import hero from "@/assets/install.jpg";
+import petrolStation from "@/assets/projects/sales.jpg";
 import hydrotestingImg from "@/assets/projects/hydrotesting.jpg";
 import installationImg from "@/assets/projects/installation.jpg";
-import maintenanceImg from "@/assets/projects/maintenance.jpg";
-import calibrationImg from "@/assets/projects/calibration.jpg";
-import overhaulImg from "@/assets/projects/overhaul.jpg";
+import maintenanceImg from "@/assets/projects/inst.jpeg";
+import calibrationImg from "@/assets/projects/petrol-station.jpg";
+import overhaulImg from "@/assets/projects/commercial.jpg";
 
 export const Route = createFileRoute("/")({
   component: Home,

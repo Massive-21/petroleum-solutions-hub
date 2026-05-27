@@ -1,5 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { CheckCircle2, Award, Users, Target } from "lucide-react";
+import petrolStation from "@/assets/projects/equipment.jpg";
+import installationImg from "@/assets/projects/team.jpeg";
+import hydrotestingImg from "@/assets/projects/standards.jpeg";
 
 export const Route = createFileRoute("/about")({
   component: About,
@@ -34,11 +37,14 @@ function About() {
 
       <div className="mt-12 grid gap-6 md:grid-cols-3">
         {[
-          { icon: Award, t: "Quality Equipment", d: "Only top-tier petroleum equipment selected for Kenyan operating conditions." },
-          { icon: Users, t: "Experienced Team", d: "Engineers and technicians with hands-on petrol station expertise." },
-          { icon: Target, t: "Safety & Compliance", d: "We work to EPRA, OSHA and county regulator standards." },
-        ].map(({ icon: Icon, t, d }) => (
+          { icon: Award, t: "Quality Equipment", d: "Only top-tier petroleum equipment selected for Kenyan operating conditions.", img: petrolStation },
+          { icon: Users, t: "Experienced Team", d: "Engineers and technicians with hands-on petrol station expertise.", img: installationImg },
+          { icon: Target, t: "Safety & Compliance", d: "We work to EPRA, OSHA and county regulator standards.", img: hydrotestingImg },
+        ].map(({ icon: Icon, t, d, img }) => (
           <div key={t} className="rounded-2xl border border-border bg-white p-6 shadow-sm">
+            <div className="mb-4 overflow-hidden rounded-lg">
+              <img src={img} alt={t} className="h-40 w-full object-cover" />
+            </div>
             <Icon className="h-8 w-8 text-primary" />
             <h3 className="mt-4 text-lg font-semibold">{t}</h3>
             <p className="mt-2 text-sm text-muted-foreground">{d}</p>

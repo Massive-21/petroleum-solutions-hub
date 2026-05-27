@@ -12,9 +12,15 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ServicesRouteImport } from './routes/services'
 import { Route as ProjectsRouteImport } from './routes/projects'
+import { Route as FarmsRouteImport } from './routes/farms'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as BlogRouteImport } from './routes/blog'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ProjectsChar91slugChar93RouteImport } from './routes/projects/[slug]'
+import { Route as ProjectsFarmsRouteImport } from './routes/projects/farms'
+import { Route as ProjectsBlogRouteImport } from './routes/projects/blog'
+import { Route as ProjectsBlogChar91slugChar93RouteImport } from './routes/projects/blog/[slug]'
 
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
@@ -31,9 +37,19 @@ const ProjectsRoute = ProjectsRouteImport.update({
   path: '/projects',
   getParentRoute: () => rootRouteImport,
 } as any)
+const FarmsRoute = FarmsRouteImport.update({
+  id: '/farms',
+  path: '/farms',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogRoute = BlogRouteImport.update({
+  id: '/blog',
+  path: '/blog',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AboutRoute = AboutRouteImport.update({
@@ -46,58 +62,124 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ProjectsChar91slugChar93Route =
+  ProjectsChar91slugChar93RouteImport.update({
+    id: '/slug',
+    path: '/slug',
+    getParentRoute: () => ProjectsRoute,
+  } as any)
+const ProjectsFarmsRoute = ProjectsFarmsRouteImport.update({
+  id: '/farms',
+  path: '/farms',
+  getParentRoute: () => ProjectsRoute,
+} as any)
+const ProjectsBlogRoute = ProjectsBlogRouteImport.update({
+  id: '/blog',
+  path: '/blog',
+  getParentRoute: () => ProjectsRoute,
+} as any)
+const ProjectsBlogChar91slugChar93Route =
+  ProjectsBlogChar91slugChar93RouteImport.update({
+    id: '/slug',
+    path: '/slug',
+    getParentRoute: () => ProjectsBlogRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/blog': typeof BlogRoute
   '/contact': typeof ContactRoute
-  '/projects': typeof ProjectsRoute
+  '/farms': typeof FarmsRoute
+  '/projects': typeof ProjectsRouteWithChildren
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/projects/blog': typeof ProjectsBlogRouteWithChildren
+  '/projects/farms': typeof ProjectsFarmsRoute
+  '/projects/slug': typeof ProjectsChar91slugChar93Route
+  '/projects/blog/slug': typeof ProjectsBlogChar91slugChar93Route
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/blog': typeof BlogRoute
   '/contact': typeof ContactRoute
-  '/projects': typeof ProjectsRoute
+  '/farms': typeof FarmsRoute
+  '/projects': typeof ProjectsRouteWithChildren
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/projects/blog': typeof ProjectsBlogRouteWithChildren
+  '/projects/farms': typeof ProjectsFarmsRoute
+  '/projects/slug': typeof ProjectsChar91slugChar93Route
+  '/projects/blog/slug': typeof ProjectsBlogChar91slugChar93Route
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/blog': typeof BlogRoute
   '/contact': typeof ContactRoute
-  '/projects': typeof ProjectsRoute
+  '/farms': typeof FarmsRoute
+  '/projects': typeof ProjectsRouteWithChildren
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/projects/blog': typeof ProjectsBlogRouteWithChildren
+  '/projects/farms': typeof ProjectsFarmsRoute
+  '/projects/slug': typeof ProjectsChar91slugChar93Route
+  '/projects/blog/slug': typeof ProjectsBlogChar91slugChar93Route
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
     | '/about'
+    | '/blog'
     | '/contact'
+    | '/farms'
     | '/projects'
     | '/services'
     | '/sitemap.xml'
+    | '/projects/blog'
+    | '/projects/farms'
+    | '/projects/slug'
+    | '/projects/blog/slug'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/contact' | '/projects' | '/services' | '/sitemap.xml'
+  to:
+    | '/'
+    | '/about'
+    | '/blog'
+    | '/contact'
+    | '/farms'
+    | '/projects'
+    | '/services'
+    | '/sitemap.xml'
+    | '/projects/blog'
+    | '/projects/farms'
+    | '/projects/slug'
+    | '/projects/blog/slug'
   id:
     | '__root__'
     | '/'
     | '/about'
+    | '/blog'
     | '/contact'
+    | '/farms'
     | '/projects'
     | '/services'
     | '/sitemap.xml'
+    | '/projects/blog'
+    | '/projects/farms'
+    | '/projects/slug'
+    | '/projects/blog/slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  BlogRoute: typeof BlogRoute
   ContactRoute: typeof ContactRoute
-  ProjectsRoute: typeof ProjectsRoute
+  FarmsRoute: typeof FarmsRoute
+  ProjectsRoute: typeof ProjectsRouteWithChildren
   ServicesRoute: typeof ServicesRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
 }
@@ -125,11 +207,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProjectsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/farms': {
+      id: '/farms'
+      path: '/farms'
+      fullPath: '/farms'
+      preLoaderRoute: typeof FarmsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/contact': {
       id: '/contact'
       path: '/contact'
       fullPath: '/contact'
       preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog': {
+      id: '/blog'
+      path: '/blog'
+      fullPath: '/blog'
+      preLoaderRoute: typeof BlogRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/about': {
@@ -146,14 +242,72 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/projects/slug': {
+      id: '/projects/slug'
+      path: '/slug'
+      fullPath: '/projects/slug'
+      preLoaderRoute: typeof ProjectsChar91slugChar93RouteImport
+      parentRoute: typeof ProjectsRoute
+    }
+    '/projects/farms': {
+      id: '/projects/farms'
+      path: '/farms'
+      fullPath: '/projects/farms'
+      preLoaderRoute: typeof ProjectsFarmsRouteImport
+      parentRoute: typeof ProjectsRoute
+    }
+    '/projects/blog': {
+      id: '/projects/blog'
+      path: '/blog'
+      fullPath: '/projects/blog'
+      preLoaderRoute: typeof ProjectsBlogRouteImport
+      parentRoute: typeof ProjectsRoute
+    }
+    '/projects/blog/slug': {
+      id: '/projects/blog/slug'
+      path: '/slug'
+      fullPath: '/projects/blog/slug'
+      preLoaderRoute: typeof ProjectsBlogChar91slugChar93RouteImport
+      parentRoute: typeof ProjectsBlogRoute
+    }
   }
 }
+
+interface ProjectsBlogRouteChildren {
+  ProjectsBlogChar91slugChar93Route: typeof ProjectsBlogChar91slugChar93Route
+}
+
+const ProjectsBlogRouteChildren: ProjectsBlogRouteChildren = {
+  ProjectsBlogChar91slugChar93Route: ProjectsBlogChar91slugChar93Route,
+}
+
+const ProjectsBlogRouteWithChildren = ProjectsBlogRoute._addFileChildren(
+  ProjectsBlogRouteChildren,
+)
+
+interface ProjectsRouteChildren {
+  ProjectsBlogRoute: typeof ProjectsBlogRouteWithChildren
+  ProjectsFarmsRoute: typeof ProjectsFarmsRoute
+  ProjectsChar91slugChar93Route: typeof ProjectsChar91slugChar93Route
+}
+
+const ProjectsRouteChildren: ProjectsRouteChildren = {
+  ProjectsBlogRoute: ProjectsBlogRouteWithChildren,
+  ProjectsFarmsRoute: ProjectsFarmsRoute,
+  ProjectsChar91slugChar93Route: ProjectsChar91slugChar93Route,
+}
+
+const ProjectsRouteWithChildren = ProjectsRoute._addFileChildren(
+  ProjectsRouteChildren,
+)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  BlogRoute: BlogRoute,
   ContactRoute: ContactRoute,
-  ProjectsRoute: ProjectsRoute,
+  FarmsRoute: FarmsRoute,
+  ProjectsRoute: ProjectsRouteWithChildren,
   ServicesRoute: ServicesRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
 }
