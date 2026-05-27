@@ -18,8 +18,6 @@ import { Route as BlogRouteImport } from './routes/blog'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ProjectsChar91slugChar93RouteImport } from './routes/projects/[slug]'
-import { Route as ProjectsFarmsRouteImport } from './routes/projects/farms'
-import { Route as ProjectsBlogRouteImport } from './routes/projects/blog'
 import { Route as ProjectsBlogChar91slugChar93RouteImport } from './routes/projects/blog/[slug]'
 
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
@@ -68,21 +66,11 @@ const ProjectsChar91slugChar93Route =
     path: '/slug',
     getParentRoute: () => ProjectsRoute,
   } as any)
-const ProjectsFarmsRoute = ProjectsFarmsRouteImport.update({
-  id: '/farms',
-  path: '/farms',
-  getParentRoute: () => ProjectsRoute,
-} as any)
-const ProjectsBlogRoute = ProjectsBlogRouteImport.update({
-  id: '/blog',
-  path: '/blog',
-  getParentRoute: () => ProjectsRoute,
-} as any)
 const ProjectsBlogChar91slugChar93Route =
   ProjectsBlogChar91slugChar93RouteImport.update({
-    id: '/slug',
-    path: '/slug',
-    getParentRoute: () => ProjectsBlogRoute,
+    id: '/blog/slug',
+    path: '/blog/slug',
+    getParentRoute: () => ProjectsRoute,
   } as any)
 
 export interface FileRoutesByFullPath {
@@ -94,8 +82,6 @@ export interface FileRoutesByFullPath {
   '/projects': typeof ProjectsRouteWithChildren
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
-  '/projects/blog': typeof ProjectsBlogRouteWithChildren
-  '/projects/farms': typeof ProjectsFarmsRoute
   '/projects/slug': typeof ProjectsChar91slugChar93Route
   '/projects/blog/slug': typeof ProjectsBlogChar91slugChar93Route
 }
@@ -108,8 +94,6 @@ export interface FileRoutesByTo {
   '/projects': typeof ProjectsRouteWithChildren
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
-  '/projects/blog': typeof ProjectsBlogRouteWithChildren
-  '/projects/farms': typeof ProjectsFarmsRoute
   '/projects/slug': typeof ProjectsChar91slugChar93Route
   '/projects/blog/slug': typeof ProjectsBlogChar91slugChar93Route
 }
@@ -123,8 +107,6 @@ export interface FileRoutesById {
   '/projects': typeof ProjectsRouteWithChildren
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
-  '/projects/blog': typeof ProjectsBlogRouteWithChildren
-  '/projects/farms': typeof ProjectsFarmsRoute
   '/projects/slug': typeof ProjectsChar91slugChar93Route
   '/projects/blog/slug': typeof ProjectsBlogChar91slugChar93Route
 }
@@ -139,8 +121,6 @@ export interface FileRouteTypes {
     | '/projects'
     | '/services'
     | '/sitemap.xml'
-    | '/projects/blog'
-    | '/projects/farms'
     | '/projects/slug'
     | '/projects/blog/slug'
   fileRoutesByTo: FileRoutesByTo
@@ -153,8 +133,6 @@ export interface FileRouteTypes {
     | '/projects'
     | '/services'
     | '/sitemap.xml'
-    | '/projects/blog'
-    | '/projects/farms'
     | '/projects/slug'
     | '/projects/blog/slug'
   id:
@@ -167,8 +145,6 @@ export interface FileRouteTypes {
     | '/projects'
     | '/services'
     | '/sitemap.xml'
-    | '/projects/blog'
-    | '/projects/farms'
     | '/projects/slug'
     | '/projects/blog/slug'
   fileRoutesById: FileRoutesById
@@ -249,52 +225,24 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProjectsChar91slugChar93RouteImport
       parentRoute: typeof ProjectsRoute
     }
-    '/projects/farms': {
-      id: '/projects/farms'
-      path: '/farms'
-      fullPath: '/projects/farms'
-      preLoaderRoute: typeof ProjectsFarmsRouteImport
-      parentRoute: typeof ProjectsRoute
-    }
-    '/projects/blog': {
-      id: '/projects/blog'
-      path: '/blog'
-      fullPath: '/projects/blog'
-      preLoaderRoute: typeof ProjectsBlogRouteImport
-      parentRoute: typeof ProjectsRoute
-    }
     '/projects/blog/slug': {
       id: '/projects/blog/slug'
-      path: '/slug'
+      path: '/blog/slug'
       fullPath: '/projects/blog/slug'
       preLoaderRoute: typeof ProjectsBlogChar91slugChar93RouteImport
-      parentRoute: typeof ProjectsBlogRoute
+      parentRoute: typeof ProjectsRoute
     }
   }
 }
 
-interface ProjectsBlogRouteChildren {
+interface ProjectsRouteChildren {
+  ProjectsChar91slugChar93Route: typeof ProjectsChar91slugChar93Route
   ProjectsBlogChar91slugChar93Route: typeof ProjectsBlogChar91slugChar93Route
 }
 
-const ProjectsBlogRouteChildren: ProjectsBlogRouteChildren = {
-  ProjectsBlogChar91slugChar93Route: ProjectsBlogChar91slugChar93Route,
-}
-
-const ProjectsBlogRouteWithChildren = ProjectsBlogRoute._addFileChildren(
-  ProjectsBlogRouteChildren,
-)
-
-interface ProjectsRouteChildren {
-  ProjectsBlogRoute: typeof ProjectsBlogRouteWithChildren
-  ProjectsFarmsRoute: typeof ProjectsFarmsRoute
-  ProjectsChar91slugChar93Route: typeof ProjectsChar91slugChar93Route
-}
-
 const ProjectsRouteChildren: ProjectsRouteChildren = {
-  ProjectsBlogRoute: ProjectsBlogRouteWithChildren,
-  ProjectsFarmsRoute: ProjectsFarmsRoute,
   ProjectsChar91slugChar93Route: ProjectsChar91slugChar93Route,
+  ProjectsBlogChar91slugChar93Route: ProjectsBlogChar91slugChar93Route,
 }
 
 const ProjectsRouteWithChildren = ProjectsRoute._addFileChildren(
