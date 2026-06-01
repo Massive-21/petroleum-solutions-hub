@@ -29,7 +29,7 @@ export function Footer() {
           <h4 className="text-sm font-semibold text-white">Contact</h4>
           <ul className="mt-3 space-y-2 text-sm text-white/70">
             <li className="flex items-start gap-2"><Phone className="mt-0.5 h-4 w-4" /><a href="tel:+254702587919">+254 702 587 919</a></li>
-            <li className="flex items-start gap-2"><Mail className="mt-0.5 h-4 w-4" /><a href="mailto:info@dzizipetroleum.com">info@dzizipetroleum.com</a></li>
+            <li className="flex items-start gap-2"><Mail className="mt-0.5 h-4 w-4" /><a href="mailto:info@dzizipetroleum.co.ke">info@dzizipetroleum.co.ke</a></li>
             <li className="flex items-start gap-2"><MapPin className="mt-0.5 h-4 w-4" /> Nairobi, Kenya</li>
           </ul>
         </div>

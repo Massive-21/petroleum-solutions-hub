@@ -101,13 +101,13 @@ function Contact() {
             <MessageCircle className="h-5 w-5" fill="currentColor" /> Chat on WhatsApp
           </a>
           <a
-            href="mailto:info@dzizipetroleum.com"
+            href="mailto:info@dzizipetroleum.co.ke"
             className="flex items-start gap-3 rounded-2xl border border-border bg-white p-5 shadow-sm transition hover:border-primary"
           >
             <Mail className="mt-1 h-5 w-5 text-primary" />
             <div>
               <div className="text-sm font-semibold">Email</div>
-              <div className="text-sm text-muted-foreground">info@dzizipetroleum.com</div>
+              <div className="text-sm text-muted-foreground">info@dzizipetroleum.co.ke</div>
             </div>
           </a>
           <div className="flex items-start gap-3 rounded-2xl border border-border bg-white p-5 shadow-sm">
