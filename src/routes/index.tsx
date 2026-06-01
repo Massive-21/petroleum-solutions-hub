@@ -10,7 +10,7 @@ import {
   CheckCircle2,
   Phone,
 } from "lucide-react";
-import hero from "@/assets/install.jpg";
+import hero from "@/assets/hero-station.jpg";
 import petrolStation from "@/assets/projects/sales.jpg";
 import hydrotestingImg from "@/assets/projects/hydrotesting.jpg";
 import installationImg from "@/assets/projects/installation.jpg";
