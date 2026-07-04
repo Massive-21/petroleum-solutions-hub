@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   Fuel,
@@ -10,18 +11,26 @@ import {
   CheckCircle2,
   Phone,
 } from "lucide-react";
-import hero from "@/assets/hero-station.jpg";
+import hero from "@/assets/install.jpg";
 import petrolStation from "@/assets/projects/sales.jpg";
 import hydrotestingImg from "@/assets/projects/hydrotesting.jpg";
 import installationImg from "@/assets/projects/installation.jpg";
 import maintenanceImg from "@/assets/projects/inst.jpeg";
 import calibrationImg from "@/assets/projects/petrol-station.jpg";
 import overhaulImg from "@/assets/projects/commercial.jpg";
+import { SocialLinks } from "@/components/SocialLinks";
 
 export const Route = createFileRoute("/")({
   component: Home,
   head: () => ({
     meta: [
+      { property: "og:image", content: "https://dzizipetroleum.co.ke/favicon.ico" },
+      { property: "og:image:alt", content: "D'Zizi Petroleum Services Limited preview image" },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
+      { property: "og:image:type", content: "image/png" },
+      { name: "twitter:image", content: "https://dzizipetroleum.co.ke/favicon.ico" },
+      { name: "twitter:image:alt", content: "D'Zizi Petroleum Services Limited preview image" },
       { title: "D'Zizi Petroleum | Petrol Station Equipment & Installation in Kenya" },
       {
         name: "description",
@@ -29,11 +38,45 @@ export const Route = createFileRoute("/")({
           "Kenya's trusted petroleum partner. Equipment supply, petrol station installation, hydrotesting, calibration and maintenance — done right, first time.",
       },
       { property: "og:title", content: "D'Zizi Petroleum Services Limited" },
-      { property: "og:url", content: "/" },
+      { property: "og:description", content: "Kenya's trusted petroleum partner. Equipment supply, petrol station installation, hydrotesting, calibration and maintenance — done right, first time." },
+      { property: "og:url", content: "https://dzizipetroleum.co.ke/" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "/" }],
+    links: [{ rel: "canonical", href: "https://dzizipetroleum.co.ke/" }],
   }),
 });
+
+function CountUp({ target, suffix = "" }: { target: number; suffix?: string }) {
+  const [count, setCount] = useState(0);
+  const ref = useRef<HTMLSpanElement>(null);
+  const started = useRef(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !started.current) {
+          started.current = true;
+          const duration = 1600;
+          const start = performance.now();
+          const tick = (now: number) => {
+            const p = Math.min((now - start) / duration, 1);
+            const eased = 1 - Math.pow(1 - p, 3);
+            setCount(Math.round(eased * target));
+            if (p < 1) requestAnimationFrame(tick);
+          };
+          requestAnimationFrame(tick);
+        }
+      },
+      { threshold: 0.5 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [target]);
+
+  return <span ref={ref}>{count}{suffix}</span>;
+}
 
 const services = [
   { icon: Fuel, title: "Petroleum Equipment Sales", desc: "Underground & above-ground tanks, pumps, compressors, air gauges and generators.", img: petrolStation },
@@ -77,6 +120,10 @@ function Home() {
                 <Phone className="h-4 w-4" /> +254 702 587 919
               </a>
             </div>
+            <div className="mt-6 flex flex-wrap items-center gap-3">
+              <span className="text-sm font-semibold text-foreground/80">Follow us:</span>
+              <SocialLinks />
+            </div>
             <div className="mt-8 grid max-w-md grid-cols-2 gap-4 text-sm">
               {[
                 "EPRA-aligned safety",
@@ -115,10 +162,10 @@ function Home() {
           </Link>
         </div>
         <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {services.map(({ icon: Icon, title, desc, img }) => (
+          {services.map(({ icon: Icon, title, desc, img }, idx) => (
             <div
               key={title}
-              className="group relative overflow-hidden rounded-2xl border border-border bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg"
+              className={`reveal reveal-delay-${idx + 1} group relative overflow-hidden rounded-2xl border border-border bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg`}
             >
               <div className="mb-4 overflow-hidden rounded-lg">
                 <img src={img} alt={title} className="h-40 w-full object-cover" />
@@ -138,13 +185,13 @@ function Home() {
       <section className="bg-brand-ink py-16 text-white">
         <div className="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 md:grid-cols-4">
           {[
-            { k: "10+", v: "Years industry experience" },
-            { k: "50+", v: "Stations served" },
-            { k: "24/7", v: "Emergency response" },
-            { k: "100%", v: "Compliance focus" },
-          ].map((s) => (
-            <div key={s.v}>
-              <div className="text-4xl font-extrabold text-secondary">{s.k}</div>
+            { display: <CountUp target={10} suffix="+" />, v: "Years industry experience" },
+            { display: <CountUp target={50} suffix="+" />, v: "Stations served" },
+            { display: <span>24/7</span>, v: "Emergency response" },
+            { display: <CountUp target={100} suffix="%" />, v: "Compliance focus" },
+          ].map((s, i) => (
+            <div key={s.v} className={`reveal reveal-delay-${i + 1}`}>
+              <div className="text-4xl font-extrabold text-secondary">{s.display}</div>
               <div className="mt-1 text-sm text-white/70">{s.v}</div>
             </div>
           ))}
@@ -153,7 +200,7 @@ function Home() {
 
       {/* CTA */}
       <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6">
-        <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-primary to-[oklch(0.45_0.18_25)] p-10 text-white shadow-xl md:p-14">
+        <div className="reveal relative overflow-hidden rounded-3xl bg-gradient-to-br from-primary to-[oklch(0.45_0.18_25)] p-10 text-white shadow-xl md:p-14">
           <div className="absolute -right-20 -top-20 h-64 w-64 rounded-full bg-secondary/30 blur-3xl" />
           <h2 className="max-w-2xl text-3xl font-bold sm:text-4xl">
             Building a new station or upgrading an existing one?

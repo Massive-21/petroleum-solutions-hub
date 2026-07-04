@@ -90,6 +90,60 @@ const items = [
       "Routine inspections and reporting",
     ],
   },
+  {
+    img: calib,
+    title: "Tank Fabrication & Repairs",
+    intro: "Custom fabrication and structural repairs for UST and AST.",
+    bullets: ["Fabrication to spec", "Structural repairs and patching", "Coating and lining services"],
+  },
+  {
+    img: station,
+    title: "Canopy Fabrication & Installation",
+    intro: "Design, fabrication and installation of durable forecourt canopies.",
+    bullets: ["Custom canopy design", "Steel fabrication", "On-site installation and finishing"],
+  },
+  {
+    img: install,
+    title: "Fuel Line Installation, Repairs & Maintenance",
+    intro: "Installation and upkeep of suction, vent and offloading lines.",
+    bullets: ["New line installation", "Leak repairs and replacement", "Planned maintenance"],
+  },
+  {
+    img: tank,
+    title: "Fuel Line Pressure Test",
+    intro: "Pressure testing and certification for fuel distribution lines.",
+    bullets: ["Pre-commissioning pressure tests", "Periodic integrity checks", "Test reports and recommendations"],
+  },
+  {
+    img: hydro,
+    title: "Supply, Installation & Maintenance of Assorted Petrol Station Equipment",
+    intro: "Comprehensive supply and lifecycle support for station equipment.",
+    bullets: ["Equipment supply", "Installation & commissioning", "Ongoing maintenance contracts"],
+  },
+  {
+    img: maint,
+    title: "Assorted Pump Spare Parts",
+    intro: "Wide range of genuine pump spares and consumables.",
+    bullets: ["Dispenser nozzles & hoses", "Pump internals & seals", "Filters and electrical components"],
+  },
+  {
+    img: station,
+    title: "Transportation Services",
+    intro: "Safe, insured transportation of fuel-related equipment and parts.",
+    bullets: ["Logistics for heavy equipment", "Secure packaging and transit", "Nationwide delivery"],
+  },
+  {
+    img: calib,
+    title: "Station Electrical Installation Works",
+    intro: "Electrical systems installation and commissioning for forecourts.",
+    bullets: ["Site electrical design", "Installation and testing", "Control panel supply"],
+  },
+  {
+    img: hydro,
+    title: "Branding Works",
+    intro: "Signage, livery and brand installation across forecourts.",
+    bullets: ["Canopy signage", "Pump livery", "Site wayfinding and decals"],
+  },
 ];
 
 function Services() {
@@ -103,41 +157,27 @@ function Services() {
         From new petrol station builds to keeping your existing site running, we deliver every stage in-house.
       </p>
 
-      <div className="mt-12 space-y-10">
-        {items.map((s, i) => (
-          <article
+      <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        {items.map((s) => (
+          <div
             key={s.title}
-            className={`grid gap-8 rounded-3xl border border-border bg-white p-6 shadow-sm md:grid-cols-2 md:items-center md:p-8 ${
-              i % 2 === 1 ? "md:[&>div:first-child]:order-2" : ""
-            }`}
+            className="group relative overflow-hidden rounded-2xl border border-border bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg"
           >
-            <div>
-              <img
-                src={s.img}
-                alt={s.title}
-                className="aspect-[4/3] w-full rounded-2xl object-cover"
-                loading="lazy"
-              />
+            <div className="mb-4 overflow-hidden rounded-lg">
+              <img src={s.img} alt={s.title} className="h-40 w-full object-cover" loading="lazy" />
             </div>
-            <div>
-              <h2 className="text-2xl font-bold sm:text-3xl">{s.title}</h2>
-              <p className="mt-2 text-muted-foreground">{s.intro}</p>
-              <ul className="mt-5 space-y-2">
-                {s.bullets.map((b) => (
-                  <li key={b} className="flex items-start gap-2 text-sm text-foreground/80">
-                    <span className="mt-1 h-1.5 w-1.5 rounded-full bg-primary" />
-                    {b}
-                  </li>
-                ))}
-              </ul>
+            <h3 className="text-lg font-semibold">{s.title}</h3>
+            <p className="mt-2 text-sm text-muted-foreground">{s.intro}</p>
+            <div className="mt-4">
               <Link
                 to="/contact"
-                className="mt-6 inline-flex rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground hover:opacity-90"
+                className="inline-flex items-center gap-2 rounded-full bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground hover:opacity-90"
               >
-                Enquire about this service
+                Enquire
               </Link>
             </div>
-          </article>
+            <div className="absolute right-0 top-0 h-1 w-0 bg-gradient-to-r from-primary to-secondary transition-all duration-500 group-hover:w-full" />
+          </div>
         ))}
       </div>
     </div>

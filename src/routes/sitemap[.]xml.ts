@@ -2,29 +2,11 @@ import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
 
 const staticPaths = [
-  "/",
-  "/about",
-  "/services",
-  "/projects",
-  "/contact",
-  "/blog",
-  "/farms",
-];
-
-const projectSlugs = [
-  "petrol-station-installation",
-  "tank-calibration-project",
-  "hydrotesting-services",
-  "maintenance-overhaul",
-  "line-installation",
-  "pump-servicing",
-  "tank-replacement",
-];
-
-const blogSlugs = [
-  "petrol-station-install",
-  "hydrotesting-works",
-  "maintenance-overhaul",
+  { path: "/",         priority: "1.0", changefreq: "weekly"  },
+  { path: "/about",    priority: "0.8", changefreq: "monthly" },
+  { path: "/services", priority: "0.9", changefreq: "weekly"  },
+  { path: "/projects", priority: "0.8", changefreq: "weekly"  },
+  { path: "/contact",  priority: "0.7", changefreq: "monthly" },
 ];
 
 export const Route = createFileRoute("/sitemap.xml")({
@@ -32,16 +14,12 @@ export const Route = createFileRoute("/sitemap.xml")({
     handlers: {
       GET: async ({ request }) => {
         const origin = new URL(request.url).origin;
-        const paths = [
-          ...staticPaths,
-          ...projectSlugs.map((slug) => `/projects/${slug}`),
-          ...blogSlugs.map((slug) => `/projects/blog/${slug}`),
-        ];
+        const paths = staticPaths;
 
         const urls = paths
           .map(
-            (path) =>
-              `  <url>\n    <loc>${origin}${path}</loc>\n    <changefreq>weekly</changefreq>\n    <priority>${path === "/" ? "1.0" : "0.8"}</priority>\n  </url>`,
+            ({ path, priority, changefreq }) =>
+              `  <url>\n    <loc>${origin}${path}</loc>\n    <changefreq>${changefreq}</changefreq>\n    <priority>${priority}</priority>\n  </url>`,
           )
           .join("\n");
 

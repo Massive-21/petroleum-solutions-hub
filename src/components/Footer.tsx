@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { Phone, Mail, MapPin } from "lucide-react";
 import logo from "@/assets/dzizi-logo.jpg";
+import { SocialLinks } from "@/components/SocialLinks";
 
 export function Footer() {
   return (
@@ -32,6 +33,10 @@ export function Footer() {
             <li className="flex items-start gap-2"><Mail className="mt-0.5 h-4 w-4" /><a href="mailto:info@dzizipetroleum.co.ke">info@dzizipetroleum.co.ke</a></li>
             <li className="flex items-start gap-2"><MapPin className="mt-0.5 h-4 w-4" /> Nairobi, Kenya</li>
           </ul>
+          <div className="mt-5">
+            <h4 className="text-sm font-semibold text-white">Follow us</h4>
+            <SocialLinks compact className="mt-3" />
+          </div>
         </div>
       </div>
       <div className="border-t border-white/10">

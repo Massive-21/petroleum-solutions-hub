@@ -68,7 +68,12 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
 }
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
-  head: () => ({
+  head: () => {
+    const siteUrl = "https://dzizipetroleum.co.ke";
+    const ogImage = `${siteUrl}/og-image.png`;
+    const ogImageAlt = "D'Zizi Petroleum Services Limited preview image";
+
+    return {
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
@@ -84,11 +89,26 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:description", content: "Petroleum equipment, installation, hydrotesting and maintenance across Kenya." },
       { property: "og:type", content: "website" },
       { property: "og:locale", content: "en_KE" },
+      { property: "og:url", content: siteUrl },
+      { property: "og:image", content: ogImage },
+      { property: "og:image:alt", content: ogImageAlt },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
+      { property: "og:image:type", content: "image/png" },
+      { property: "og:site_name", content: "D'Zizi Petroleum Services Limited" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "D'Zizi Petroleum Services Limited" },
+      { name: "twitter:description", content: "Petroleum equipment, installation, hydrotesting and maintenance across Kenya." },
+      { name: "twitter:image", content: ogImage },
+      { name: "twitter:image:alt", content: ogImageAlt },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
+      { rel: "icon", href: "/favicon.ico" },
+      { rel: "shortcut icon", href: "/favicon.ico" },
+      { rel: "apple-touch-icon", href: "/apple-touch-icon.png", sizes: "180x180" },
       { rel: "preconnect", href: "https://gteipjszrtnvkabqhaiq.supabase.co" },
+      { rel: "canonical", href: siteUrl },
     ],
     scripts: [
       {
@@ -100,11 +120,25 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           telephone: "+254702587919",
           areaServed: "KE",
           address: { "@type": "PostalAddress", addressLocality: "Nairobi", addressCountry: "KE" },
-          url: "/",
+          url: "https://dzizipetroleum.co.ke",
         }),
       },
+      {
+        // Google Ads Global Site Tag
+    src: "https://www.googletagmanager.com/gtag/js?id=AW-18179351603",
+    async: true,
+  },
+  {
+    children: `
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'AW-18179351603');
+    `,
+  },
     ],
-  }),
+    };
+  },
   shellComponent: RootShell,
   component: RootComponent,
   notFoundComponent: NotFoundComponent,
