@@ -10,16 +10,16 @@ export const Route = createFileRoute("/services")({
   component: Services,
   head: () => ({
     meta: [
-      { title: "Petroleum Services in Kenya | Installation, Hydrotesting & More" },
+      { title: "Petroleum Services Kenya | Installation, Hydrotesting, Calibration – D'Zizi" },
       {
         name: "description",
         content:
-          "Full-service petroleum solutions in Kenya: equipment sales, petrol station installation, hydrotesting, tank calibration, maintenance & commercial site servicing.",
+          "D'Zizi Petroleum Services: petrol station installation, hydrotesting, tank calibration, equipment sales and maintenance across Nairobi, Mombasa, Kisumu and all of Kenya.",
       },
-      { property: "og:title", content: "Petroleum Services in Kenya" },
-      { property: "og:url", content: "/services" },
+      { property: "og:title", content: "Petroleum Services Kenya | D'Zizi Petroleum" },
+      { property: "og:url", content: "https://dzizipetroleum.co.ke/services" },
     ],
-    links: [{ rel: "canonical", href: "/services" }],
+    links: [{ rel: "canonical", href: "https://dzizipetroleum.co.ke/services" }],
   }),
 });
 

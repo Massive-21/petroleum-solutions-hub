@@ -43,6 +43,65 @@ export const Route = createFileRoute("/")({
       { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [{ rel: "canonical", href: "https://dzizipetroleum.co.ke/" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: [
+            {
+              "@type": "Question",
+              name: "Do you install petrol stations across all of Kenya?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "Yes. D'Zizi Petroleum Services installs complete petrol stations in Nairobi, Mombasa, Kisumu, Eldoret, Nakuru, Thika, Nyeri and all major towns across Kenya.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "What petroleum equipment do you supply in Kenya?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "We supply underground (UST) and above-ground (AST) storage tanks, fuel dispensers, submersible and suction pumps, air compressors, automatic tank gauges (ATGs) and standby generators — all EPRA-aligned.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "Are you EPRA-licensed to operate in Kenya?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "Yes. D'Zizi Petroleum Services operates in full compliance with the Energy and Petroleum Regulatory Authority (EPRA) requirements and supports clients through EPRA inspection processes.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "How quickly can you respond to a breakdown?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "We offer 24/7 emergency response for breakdowns and urgent maintenance across all major routes in Kenya. Call us any time on +254 702 587 919.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "Do you offer tank calibration and hydrotesting services?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "Yes. We carry out wet and dry tank calibration for USTs and ASTs, issue WMA-compliant calibration reports, and perform pre-commissioning and periodic hydrotesting with full certification.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "How do I get a quote for petrol station installation in Kenya?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "Call or WhatsApp us on +254 702 587 919, or fill in the contact form on our website. We will assess your site and provide a detailed quote at no obligation.",
+              },
+            },
+          ],
+        }),
+      },
+    ],
   }),
 });
 
@@ -194,6 +253,74 @@ function Home() {
               <div className="text-4xl font-extrabold text-secondary">{s.display}</div>
               <div className="mt-1 text-sm text-white/70">{s.v}</div>
             </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Locations */}
+      <section className="border-y border-border bg-white/60 py-8">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6">
+          <p className="mb-4 text-center text-xs font-semibold uppercase tracking-widest text-muted-foreground">
+            Serving petroleum operators across Kenya
+          </p>
+          <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm font-medium text-foreground/80">
+            {[
+              "Nairobi", "Mombasa", "Kisumu", "Eldoret", "Nakuru",
+              "Thika", "Nyeri", "Meru", "Machakos", "Kitale",
+              "Malindi", "Garissa", "Kisii", "Kakamega", "Embu",
+            ].map((city, i, arr) => (
+              <span key={city} className="flex items-center gap-6">
+                {city}
+                {i < arr.length - 1 && <span className="text-border">·</span>}
+              </span>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="mx-auto max-w-4xl px-4 py-16 sm:px-6">
+        <div className="reveal text-center">
+          <p className="text-sm font-semibold uppercase tracking-wider text-primary">FAQ</p>
+          <h2 className="mt-2 text-3xl font-bold sm:text-4xl">Common questions</h2>
+        </div>
+        <div className="mt-10 space-y-4">
+          {[
+            {
+              q: "Do you install petrol stations across all of Kenya?",
+              a: "Yes. We cover Nairobi, Mombasa, Kisumu, Eldoret, Nakuru, Thika, Nyeri and all major towns. Call us to discuss your location.",
+            },
+            {
+              q: "What petroleum equipment do you supply?",
+              a: "Underground and above-ground storage tanks, fuel dispensers, submersible and suction pumps, air compressors, automatic tank gauges (ATGs) and standby generators — all EPRA-aligned.",
+            },
+            {
+              q: "Are you EPRA-licensed?",
+              a: "Yes. We operate in full compliance with EPRA requirements and actively support clients through the EPRA inspection and licensing process.",
+            },
+            {
+              q: "How quickly can you respond to a breakdown?",
+              a: "We offer 24/7 emergency response across all major Kenyan routes. Call +254 702 587 919 any time.",
+            },
+            {
+              q: "Do you offer tank calibration and hydrotesting?",
+              a: "Yes. We carry out wet and dry calibration for USTs and ASTs with WMA-compliant reports, and pre-commissioning or periodic hydrotesting with full certification.",
+            },
+            {
+              q: "How do I get a quote?",
+              a: "Call or WhatsApp +254 702 587 919, or fill in the contact form. We assess your site and provide a detailed quote at no obligation.",
+            },
+          ].map(({ q, a }, i) => (
+            <details
+              key={q}
+              className={`reveal reveal-delay-${(i % 4) + 1} group rounded-2xl border border-border bg-white px-6 py-4 shadow-sm`}
+            >
+              <summary className="flex cursor-pointer items-center justify-between gap-4 text-base font-semibold text-foreground marker:content-none">
+                {q}
+                <span className="ml-auto shrink-0 text-primary transition-transform duration-200 group-open:rotate-45">+</span>
+              </summary>
+              <p className="mt-3 text-sm text-muted-foreground">{a}</p>
+            </details>
           ))}
         </div>
       </section>

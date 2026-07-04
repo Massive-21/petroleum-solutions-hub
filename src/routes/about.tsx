@@ -8,16 +8,16 @@ export const Route = createFileRoute("/about")({
   component: About,
   head: () => ({
     meta: [
-      { title: "About D'Zizi Petroleum | Petroleum Services Company in Kenya" },
+      { title: "About D'Zizi Petroleum | Kenya's Trusted Petroleum Services Company" },
       {
         name: "description",
         content:
-          "Learn about D'Zizi Petroleum Services Limited — a Kenyan company delivering petroleum equipment, installation, hydrotesting, calibration and maintenance.",
+          "D'Zizi Petroleum Services Limited — a fully Kenyan-owned company delivering petroleum equipment, petrol station installation, hydrotesting, calibration and maintenance nationwide.",
       },
-      { property: "og:title", content: "About D'Zizi Petroleum" },
-      { property: "og:url", content: "/about" },
+      { property: "og:title", content: "About D'Zizi Petroleum | Kenya Petroleum Services" },
+      { property: "og:url", content: "https://dzizipetroleum.co.ke/about" },
     ],
-    links: [{ rel: "canonical", href: "/about" }],
+    links: [{ rel: "canonical", href: "https://dzizipetroleum.co.ke/about" }],
   }),
 });
 

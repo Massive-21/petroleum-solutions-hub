@@ -8,16 +8,16 @@ export const Route = createFileRoute("/contact")({
   component: Contact,
   head: () => ({
     meta: [
-      { title: "Contact D'Zizi Petroleum | Petrol Station Services Kenya" },
+      { title: "Contact D'Zizi Petroleum | +254 702 587 919 | Petroleum Services Kenya" },
       {
         name: "description",
         content:
-          "Get in touch with D'Zizi Petroleum Services Limited. Call +254 702 587 919 or send us a message — petroleum services across Kenya.",
+          "Contact D'Zizi Petroleum Services Limited — call +254 702 587 919 or WhatsApp us. We cover Nairobi, Mombasa, Kisumu, Eldoret and all of Kenya.",
       },
-      { property: "og:title", content: "Contact D'Zizi Petroleum" },
-      { property: "og:url", content: "/contact" },
+      { property: "og:title", content: "Contact D'Zizi Petroleum | Kenya" },
+      { property: "og:url", content: "https://dzizipetroleum.co.ke/contact" },
     ],
-    links: [{ rel: "canonical", href: "/contact" }],
+    links: [{ rel: "canonical", href: "https://dzizipetroleum.co.ke/contact" }],
   }),
 });
 
