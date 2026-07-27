@@ -59,6 +59,12 @@ function CanopyFabricationInstallation() {
         "Coordination with civil works and electrical teams",
         "Nationwide installation across Kenya",
       ]}
+      process={[
+        { step: "Site Survey", desc: "We measure your forecourt, assess column positions, structural loading and brand requirements, then agree on the canopy design and dimensions with you." },
+        { step: "Design & Fabrication", desc: "Our team fabricates the steel structure, roof sheeting and fascia panels to the agreed drawings, applying primer and anti-corrosion coatings at the workshop." },
+        { step: "Foundation & Steelwork", desc: "On site, we install concrete footings, erect columns and fix the main beam structure, coordinating with civil works where needed." },
+        { step: "Finishing & Handover", desc: "We fix roof sheeting, install canopy lighting, apply final paint, fit brand signage and hand over a complete, ready-to-use forecourt canopy." },
+      ]}
       faqs={[
         {
           q: "How long does canopy fabrication and installation take?",

@@ -59,6 +59,12 @@ function FuelLinePressureTest() {
         "Emergency integrity testing",
         "Nationwide service across Kenya",
       ]}
+      process={[
+        { step: "Site Briefing & Isolation", desc: "We review the pipework layout with you, identify all line sections to be tested and isolate them from tanks and dispensers to create a closed test section." },
+        { step: "Pressure Application", desc: "Using calibrated test equipment, we pressurize each line to the required test pressure and begin the hold period, recording gauge readings at set intervals." },
+        { step: "Monitoring & Leak Finding", desc: "We monitor for pressure drop throughout the test duration. If a drop is detected, we use pressure isolation and probing techniques to locate the exact failure point." },
+        { step: "Certification & Reporting", desc: "Passing lines are certified with an EPRA-accepted pressure test certificate. Failing lines are documented with leak location details so repairs can be made before re-test." },
+      ]}
       faqs={[
         {
           q: "Is fuel line pressure testing required by EPRA?",

@@ -59,6 +59,12 @@ function Transportation() {
         "Insured loads",
         "Emergency delivery for urgent projects",
       ]}
+      process={[
+        { step: "Enquiry & Booking", desc: "Contact us with the equipment type, size, origin and destination. We confirm vehicle availability, agree a collection date and arrange insurance cover for the load." },
+        { step: "Load Planning", desc: "We select the right transport vehicle - flatbed, low-loader or crane truck - and plan the route, permits and handling equipment needed for safe movement." },
+        { step: "Collection & Transit", desc: "Equipment is carefully loaded, secured with proper restraints and transported by our experienced drivers, with real-time coordination between our logistics and installation teams." },
+        { step: "Delivery & Handover", desc: "We off-load at the destination site using appropriate equipment, confirm condition on arrival and hand over to your team or our installation crew ready to proceed." },
+      ]}
       faqs={[
         {
           q: "Do you transport underground tanks across Kenya?",

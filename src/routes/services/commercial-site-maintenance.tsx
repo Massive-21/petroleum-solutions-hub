@@ -59,6 +59,12 @@ function CommercialSiteMaintenance() {
         "Maintenance reporting and records",
         "Generator and backup power system servicing",
       ]}
+      process={[
+        { step: "Site Audit", desc: "We carry out a thorough audit of your fuel storage tanks, pipework, dispensing points and safety systems, documenting equipment condition and any immediate risks." },
+        { step: "Maintenance Plan", desc: "Based on the audit, we agree a scheduled maintenance plan with you - setting visit frequency, scope of each service and response time commitments for breakdowns." },
+        { step: "Scheduled Servicing", desc: "Our technicians carry out planned visits: pump servicing, filter changes, calibration checks, ATG verification and safety inspections on the agreed schedule." },
+        { step: "Reporting & Review", desc: "After each visit we provide a written service report. We review the plan with you periodically, updating scope as your site's needs or compliance requirements change." },
+      ]}
       faqs={[
         {
           q: "Do you maintain fuel systems at mining and construction sites?",

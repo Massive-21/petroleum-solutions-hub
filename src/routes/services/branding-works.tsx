@@ -59,6 +59,12 @@ function BrandingWorks() {
         "Rebranding and flag change works",
         "Signage maintenance and bulb replacement",
       ]}
+      process={[
+        { step: "Brief & Concept", desc: "We review your brand manual, oil company guidelines or independent branding brief, and confirm sign sizes, positions, materials and lighting requirements for each element." },
+        { step: "Material Procurement", desc: "Signage panels, LED modules, fascia sheets and vinyl wraps are ordered or fabricated to spec, checked against brand standards before we leave the workshop." },
+        { step: "On-Site Preparation", desc: "We remove any existing brand elements, carry out surface repairs, install mounting frames and run power cabling for illuminated signs ahead of the main installation day." },
+        { step: "Installation & Sign-Off", desc: "Brand elements are installed, aligned and powered on. We walk the forecourt with you, make any adjustments and provide a photographic handover record." },
+      ]}
       faqs={[
         {
           q: "Can you work to our oil company's brand guidelines?",

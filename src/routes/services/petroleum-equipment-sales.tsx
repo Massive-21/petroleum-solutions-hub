@@ -59,6 +59,12 @@ function PetroleumEquipmentSales() {
         "Fire safety equipment (extinguishers, foam systems)",
         "Manhole covers, spill buckets and overfill valves",
       ]}
+      process={[
+        { step: "Requirement Review", desc: "We discuss your site plan, fuel throughput targets, number of dispensing points and storage capacity needs to identify the right equipment mix for your project." },
+        { step: "Specification & Quotation", desc: "We specify EPRA-compliant products for each requirement, check lead times and prepare a detailed quotation with itemised pricing and delivery schedule." },
+        { step: "Order & Procurement", desc: "Once the order is confirmed, we procure from vetted suppliers, inspect equipment before dispatch and arrange appropriate transport to your site." },
+        { step: "Delivery & Support", desc: "Equipment is delivered to site on the agreed date. Where installation is part of the package, our teams take over immediately - otherwise we provide commissioning guidance and ongoing spares support." },
+      ]}
       faqs={[
         {
           q: "Do you supply equipment only, or do you also install?",

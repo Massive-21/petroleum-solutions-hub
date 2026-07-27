@@ -59,6 +59,12 @@ function PetrolStationEquipmentSupply() {
         "Ongoing maintenance contracts",
         "Spare parts supply and stocking",
       ]}
+      process={[
+        { step: "Needs Assessment", desc: "We discuss your station layout, throughput volumes, number of fuelling points and compliance requirements to determine exactly what equipment you need." },
+        { step: "Equipment Selection & Quote", desc: "We recommend the right specification for each item, source EPRA-aligned products and issue a comprehensive quotation covering supply, delivery and installation." },
+        { step: "Supply & Delivery", desc: "Equipment is procured, inspected at source and transported to your site using appropriate vehicles. Our team coordinates delivery timing to match your construction programme." },
+        { step: "Installation & Handover", desc: "We install and commission every item we supply, run system tests, prepare compliance documentation and hand over a fully operational, EPRA-ready station." },
+      ]}
       faqs={[
         {
           q: "Can you manage the full lifecycle of petrol station equipment?",

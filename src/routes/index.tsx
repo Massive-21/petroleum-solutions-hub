@@ -228,7 +228,7 @@ function Home() {
               className={`reveal reveal-delay-${idx + 1} group relative overflow-hidden rounded-2xl border border-border bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg`}
             >
               <div className="mb-4 overflow-hidden rounded-lg">
-                <img src={img} alt={title} className="h-40 w-full object-cover transition duration-500 group-hover:scale-105" />
+                <img src={img} alt={title} className="h-40 w-full object-cover transition duration-500 group-hover:scale-105" loading="lazy" decoding="async" />
               </div>
               <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary transition group-hover:bg-primary group-hover:text-primary-foreground">
                 <Icon className="h-6 w-6" />

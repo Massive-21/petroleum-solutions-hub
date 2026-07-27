@@ -196,18 +196,19 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         }),
       },
       {
-        // Google Ads Global Site Tag
-    src: "https://www.googletagmanager.com/gtag/js?id=AW-18179351603",
-    async: true,
-  },
-  {
-    children: `
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'AW-18179351603');
-    `,
-  },
+        src: "https://www.googletagmanager.com/gtag/js?id=AW-18179351603",
+        async: true,
+        defer: true,
+      },
+      {
+        defer: true,
+        children: `
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'AW-18179351603', { send_page_view: true });
+        `,
+      },
     ],
     };
   },

@@ -59,6 +59,12 @@ function ElectricalInstallation() {
         "Earthing and lightning protection",
         "Electrical testing, certification and commissioning",
       ]}
+      process={[
+        { step: "Load Assessment & Design", desc: "We calculate the total electrical load for your forecourt - dispensers, pumps, ATG, lighting and generator - and produce a wiring layout and panel schedule." },
+        { step: "Material Supply", desc: "We procure the correct cable sizes, distribution boards, conduits, isolators and control panels, specifying explosion-proof fittings wherever required in hazardous zones." },
+        { step: "Installation", desc: "Our qualified electricians install the main distribution board, run cabling, wire dispensers and pump panels, fit lighting and connect the generator transfer switch." },
+        { step: "Testing & Commissioning", desc: "All circuits are tested for continuity, insulation resistance and correct operation. We certify the installation and commission each system before handover." },
+      ]}
       faqs={[
         {
           q: "Do petrol station electrical installations require a licensed electrician?",

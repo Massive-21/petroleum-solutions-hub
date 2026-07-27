@@ -101,6 +101,7 @@
 .ticker-track {
   display: inline-flex;
   animation: ticker-scroll 44s linear infinite;
+  will-change: transform;
 }
 
 .ticker-banner:hover .ticker-track {
@@ -160,12 +161,13 @@
 .animated-bg::after {
   content: "";
   position: absolute;
-  width: 60vw;
-  height: 60vw;
+  width: 50vw;
+  height: 50vw;
   border-radius: 50%;
-  filter: blur(80px);
-  opacity: 0.35;
-  animation: float 18s ease-in-out infinite;
+  filter: blur(50px);
+  opacity: 0.3;
+  will-change: transform;
+  animation: float 22s ease-in-out infinite;
 }
 .animated-bg::before {
   background: radial-gradient(circle, oklch(0.82 0.17 80 / 0.35), transparent 70%);
@@ -176,7 +178,7 @@
   background: radial-gradient(circle, oklch(0.58 0.22 27 / 0.25), transparent 70%);
   bottom: -15vw;
   right: -10vw;
-  animation-delay: -9s;
+  animation-delay: -11s;
 }
 .animated-bg .grid-overlay {
   position: absolute;
@@ -190,49 +192,15 @@
 
 @keyframes float {
   0%, 100% { transform: translate(0, 0) scale(1); }
-  50% { transform: translate(8vw, 6vw) scale(1.1); }
+  50% { transform: translate(6vw, 5vw) scale(1.06); }
 }
 
-/* Extra background orbs */
-.bg-orb {
-  position: absolute;
-  border-radius: 50%;
-}
-
-.bg-orb-3 {
-  width: 42vw;
-  height: 42vw;
-  top: 38%;
-  left: 18%;
-  background: radial-gradient(circle, oklch(0.71 0.20 50 / 0.14), transparent 70%);
-  filter: blur(72px);
-  animation: float-alt 23s ease-in-out infinite -5s;
-}
-
-.bg-orb-4 {
-  width: 36vw;
-  height: 36vw;
-  top: 8%;
-  right: 4%;
-  background: radial-gradient(circle, oklch(0.58 0.22 27 / 0.11), transparent 70%);
-  filter: blur(66px);
-  animation: float 28s ease-in-out infinite -12s;
-}
-
-.bg-orb-5 {
-  width: 32vw;
-  height: 32vw;
-  bottom: 8%;
-  left: 8%;
-  background: radial-gradient(circle, oklch(0.82 0.17 80 / 0.11), transparent 70%);
-  filter: blur(60px);
-  animation: float-alt 20s ease-in-out infinite -8s;
-}
-
-@keyframes float-alt {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  33%       { transform: translate(-6vw, 8vw) scale(1.08); }
-  66%       { transform: translate(7vw, -4vw) scale(0.94); }
+/* Disable heavy orb animations on small screens */
+@media (max-width: 640px) {
+  .animated-bg::before,
+  .animated-bg::after {
+    animation: none;
+  }
 }
 
 @keyframes fade-up {
@@ -271,7 +239,6 @@
 
 @media (prefers-reduced-motion: reduce) {
   .ticker-track,
-  .bg-orb,
   .animated-bg::before,
   .animated-bg::after,
   .brand-gradient-text {

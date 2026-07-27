@@ -59,6 +59,12 @@ function TankFabricationRepairs() {
         "Compliance documentation for repaired tanks",
         "Emergency repair response",
       ]}
+      process={[
+        { step: "Site Inspection", desc: "We visit your site to inspect the tank, assess the damage or fabrication requirement, and document the scope of work before any cutting or welding begins." },
+        { step: "Assessment & Quotation", desc: "We analyse our findings, advise on repair versus replacement where relevant, and issue a detailed quotation with timeline." },
+        { step: "Fabrication or Repair", desc: "Our welders carry out structural repairs, internal lining, custom fabrication or fitting replacements using the correct materials for petroleum service." },
+        { step: "Testing & Certification", desc: "All repaired or fabricated tanks undergo hydrotesting and, where required, re-calibration. We issue updated compliance certificates ready for EPRA submission." },
+      ]}
       faqs={[
         {
           q: "Can a leaking underground tank be repaired or must it be replaced?",

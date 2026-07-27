@@ -59,6 +59,12 @@ function PumpSpareParts() {
         "Check valves and solenoid valves",
         "ATG probes and sensor components",
       ]}
+      process={[
+        { step: "Parts Identification", desc: "Tell us your dispenser or pump brand, model and the specific fault or part needed. If you're unsure, describe the symptom and our technicians will help identify the correct component." },
+        { step: "Stock Check & Quote", desc: "We check our stock and, if the part is not on the shelf, source it from our supplier network. We confirm availability, price and estimated delivery time before you commit." },
+        { step: "Dispatch to Site", desc: "In-stock parts are dispatched same day or next day to your location across Kenya. Urgent orders can be prioritised - call us directly on +254 702 587 919 for fast-track requests." },
+        { step: "Fitment (Optional)", desc: "If you need the part installed, our field technicians can travel to your site to fit and test the component, getting your dispenser or pump back in service as quickly as possible." },
+      ]}
       faqs={[
         {
           q: "Do you supply parts for all dispenser brands?",
