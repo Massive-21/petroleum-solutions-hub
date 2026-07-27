@@ -81,7 +81,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         name: "description",
         content:
-          "D'Zizi Petroleum Services Limited — Kenya's trusted supplier and installer of petroleum equipment: tanks, pumps, hydrotesting, calibration and petrol station maintenance.",
+          "D'Zizi Petroleum Services Limited - Kenya's trusted supplier and installer of petroleum equipment: tanks, pumps, hydrotesting, calibration and petrol station maintenance.",
       },
       { name: "author", content: "D'Zizi Petroleum Services Limited" },
       { name: "keywords", content: "petroleum equipment Kenya, petrol station installation Nairobi, fuel tank calibration Kenya, hydrotesting Kenya, fuel pump suppliers Kenya, petrol station maintenance" },
@@ -109,6 +109,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "apple-touch-icon", href: "/apple-touch-icon.png", sizes: "180x180" },
       { rel: "preconnect", href: "https://gteipjszrtnvkabqhaiq.supabase.co" },
       { rel: "canonical", href: siteUrl },
+      { rel: "alternate", type: "text/plain", href: `${siteUrl}/llms.txt`, title: "LLMs.txt - AI-readable site summary" },
     ],
     scripts: [
       {

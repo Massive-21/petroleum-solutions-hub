@@ -6,7 +6,7 @@ import overhaul from "@/assets/projects/overhaul.jpg";
 export const Route = createFileRoute("/projects/blog/slug")({
   component: BlogPost,
   head: ({ params }) => ({
-    meta: [{ title: `Project Post — ${params.slug}` }],
+    meta: [{ title: `Project Post - ${(params as Record<string, string>).slug ?? ""}` }],
   }),
 });
 
@@ -17,7 +17,7 @@ const posts = [
 ];
 
 function BlogPost() {
-  const { slug } = useParams();
+  const { slug } = useParams({ strict: false }) as { slug: string };
   const post = posts.find((p) => p.slug === slug);
 
   if (!post) {
@@ -26,7 +26,7 @@ function BlogPost() {
         <h1 className="text-2xl font-bold">Post not found</h1>
         <p className="mt-2 text-muted-foreground">We couldn't find the requested blog post.</p>
         <div className="mt-4">
-          <Link to="/projects/blog" className="text-primary hover:underline">Back to blog</Link>
+          <Link to="/projects" className="text-primary hover:underline">Back to projects</Link>
         </div>
       </div>
     );
@@ -41,7 +41,7 @@ function BlogPost() {
       <h1 className="mt-2 text-3xl font-extrabold">{post.title}</h1>
       <p className="mt-4 text-muted-foreground">{post.content}</p>
       <div className="mt-6">
-        <Link to="/projects/blog" className="text-primary hover:underline">← Back to blog</Link>
+        <Link to="/projects" className="text-primary hover:underline">← Back to projects</Link>
       </div>
     </div>
   );

@@ -12,11 +12,28 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ServicesRouteImport } from './routes/services'
 import { Route as ProjectsRouteImport } from './routes/projects'
-import { Route as FarmsRouteImport } from './routes/farms'
 import { Route as ContactRouteImport } from './routes/contact'
-import { Route as BlogRouteImport } from './routes/blog'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ServicesIndexRouteImport } from './routes/services/index'
+import { Route as ServicesUndergroundFuelTankInstallationRouteImport } from './routes/services/underground-fuel-tank-installation'
+import { Route as ServicesTransportationRouteImport } from './routes/services/transportation'
+import { Route as ServicesTankFabricationRepairsRouteImport } from './routes/services/tank-fabrication-repairs'
+import { Route as ServicesTankCalibrationRouteImport } from './routes/services/tank-calibration'
+import { Route as ServicesPumpSparePartsRouteImport } from './routes/services/pump-spare-parts'
+import { Route as ServicesPetroleumEquipmentSalesRouteImport } from './routes/services/petroleum-equipment-sales'
+import { Route as ServicesPetrolStationMaintenanceRouteImport } from './routes/services/petrol-station-maintenance'
+import { Route as ServicesPetrolStationInstallationRouteImport } from './routes/services/petrol-station-installation'
+import { Route as ServicesPetrolStationEquipmentSupplyRouteImport } from './routes/services/petrol-station-equipment-supply'
+import { Route as ServicesHydrotestingRouteImport } from './routes/services/hydrotesting'
+import { Route as ServicesFuelPipingSystemsRouteImport } from './routes/services/fuel-piping-systems'
+import { Route as ServicesFuelLinePressureTestRouteImport } from './routes/services/fuel-line-pressure-test'
+import { Route as ServicesFuelDispenserInstallationRouteImport } from './routes/services/fuel-dispenser-installation'
+import { Route as ServicesEpraComplianceRouteImport } from './routes/services/epra-compliance'
+import { Route as ServicesElectricalInstallationRouteImport } from './routes/services/electrical-installation'
+import { Route as ServicesCommercialSiteMaintenanceRouteImport } from './routes/services/commercial-site-maintenance'
+import { Route as ServicesCanopyFabricationInstallationRouteImport } from './routes/services/canopy-fabrication-installation'
+import { Route as ServicesBrandingWorksRouteImport } from './routes/services/branding-works'
 import { Route as ProjectsChar91slugChar93RouteImport } from './routes/projects/[slug]'
 import { Route as ProjectsBlogChar91slugChar93RouteImport } from './routes/projects/blog/[slug]'
 
@@ -35,19 +52,9 @@ const ProjectsRoute = ProjectsRouteImport.update({
   path: '/projects',
   getParentRoute: () => rootRouteImport,
 } as any)
-const FarmsRoute = FarmsRouteImport.update({
-  id: '/farms',
-  path: '/farms',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const BlogRoute = BlogRouteImport.update({
-  id: '/blog',
-  path: '/blog',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AboutRoute = AboutRouteImport.update({
@@ -59,6 +66,113 @@ const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesIndexRoute = ServicesIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => ServicesRoute,
+} as any)
+const ServicesUndergroundFuelTankInstallationRoute =
+  ServicesUndergroundFuelTankInstallationRouteImport.update({
+    id: '/underground-fuel-tank-installation',
+    path: '/underground-fuel-tank-installation',
+    getParentRoute: () => ServicesRoute,
+  } as any)
+const ServicesTransportationRoute = ServicesTransportationRouteImport.update({
+  id: '/transportation',
+  path: '/transportation',
+  getParentRoute: () => ServicesRoute,
+} as any)
+const ServicesTankFabricationRepairsRoute =
+  ServicesTankFabricationRepairsRouteImport.update({
+    id: '/tank-fabrication-repairs',
+    path: '/tank-fabrication-repairs',
+    getParentRoute: () => ServicesRoute,
+  } as any)
+const ServicesTankCalibrationRoute = ServicesTankCalibrationRouteImport.update({
+  id: '/tank-calibration',
+  path: '/tank-calibration',
+  getParentRoute: () => ServicesRoute,
+} as any)
+const ServicesPumpSparePartsRoute = ServicesPumpSparePartsRouteImport.update({
+  id: '/pump-spare-parts',
+  path: '/pump-spare-parts',
+  getParentRoute: () => ServicesRoute,
+} as any)
+const ServicesPetroleumEquipmentSalesRoute =
+  ServicesPetroleumEquipmentSalesRouteImport.update({
+    id: '/petroleum-equipment-sales',
+    path: '/petroleum-equipment-sales',
+    getParentRoute: () => ServicesRoute,
+  } as any)
+const ServicesPetrolStationMaintenanceRoute =
+  ServicesPetrolStationMaintenanceRouteImport.update({
+    id: '/petrol-station-maintenance',
+    path: '/petrol-station-maintenance',
+    getParentRoute: () => ServicesRoute,
+  } as any)
+const ServicesPetrolStationInstallationRoute =
+  ServicesPetrolStationInstallationRouteImport.update({
+    id: '/petrol-station-installation',
+    path: '/petrol-station-installation',
+    getParentRoute: () => ServicesRoute,
+  } as any)
+const ServicesPetrolStationEquipmentSupplyRoute =
+  ServicesPetrolStationEquipmentSupplyRouteImport.update({
+    id: '/petrol-station-equipment-supply',
+    path: '/petrol-station-equipment-supply',
+    getParentRoute: () => ServicesRoute,
+  } as any)
+const ServicesHydrotestingRoute = ServicesHydrotestingRouteImport.update({
+  id: '/hydrotesting',
+  path: '/hydrotesting',
+  getParentRoute: () => ServicesRoute,
+} as any)
+const ServicesFuelPipingSystemsRoute =
+  ServicesFuelPipingSystemsRouteImport.update({
+    id: '/fuel-piping-systems',
+    path: '/fuel-piping-systems',
+    getParentRoute: () => ServicesRoute,
+  } as any)
+const ServicesFuelLinePressureTestRoute =
+  ServicesFuelLinePressureTestRouteImport.update({
+    id: '/fuel-line-pressure-test',
+    path: '/fuel-line-pressure-test',
+    getParentRoute: () => ServicesRoute,
+  } as any)
+const ServicesFuelDispenserInstallationRoute =
+  ServicesFuelDispenserInstallationRouteImport.update({
+    id: '/fuel-dispenser-installation',
+    path: '/fuel-dispenser-installation',
+    getParentRoute: () => ServicesRoute,
+  } as any)
+const ServicesEpraComplianceRoute = ServicesEpraComplianceRouteImport.update({
+  id: '/epra-compliance',
+  path: '/epra-compliance',
+  getParentRoute: () => ServicesRoute,
+} as any)
+const ServicesElectricalInstallationRoute =
+  ServicesElectricalInstallationRouteImport.update({
+    id: '/electrical-installation',
+    path: '/electrical-installation',
+    getParentRoute: () => ServicesRoute,
+  } as any)
+const ServicesCommercialSiteMaintenanceRoute =
+  ServicesCommercialSiteMaintenanceRouteImport.update({
+    id: '/commercial-site-maintenance',
+    path: '/commercial-site-maintenance',
+    getParentRoute: () => ServicesRoute,
+  } as any)
+const ServicesCanopyFabricationInstallationRoute =
+  ServicesCanopyFabricationInstallationRouteImport.update({
+    id: '/canopy-fabrication-installation',
+    path: '/canopy-fabrication-installation',
+    getParentRoute: () => ServicesRoute,
+  } as any)
+const ServicesBrandingWorksRoute = ServicesBrandingWorksRouteImport.update({
+  id: '/branding-works',
+  path: '/branding-works',
+  getParentRoute: () => ServicesRoute,
 } as any)
 const ProjectsChar91slugChar93Route =
   ProjectsChar91slugChar93RouteImport.update({
@@ -76,38 +190,88 @@ const ProjectsBlogChar91slugChar93Route =
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
-  '/blog': typeof BlogRoute
   '/contact': typeof ContactRoute
-  '/farms': typeof FarmsRoute
   '/projects': typeof ProjectsRouteWithChildren
-  '/services': typeof ServicesRoute
+  '/services': typeof ServicesRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/projects/slug': typeof ProjectsChar91slugChar93Route
+  '/services/branding-works': typeof ServicesBrandingWorksRoute
+  '/services/canopy-fabrication-installation': typeof ServicesCanopyFabricationInstallationRoute
+  '/services/commercial-site-maintenance': typeof ServicesCommercialSiteMaintenanceRoute
+  '/services/electrical-installation': typeof ServicesElectricalInstallationRoute
+  '/services/epra-compliance': typeof ServicesEpraComplianceRoute
+  '/services/fuel-dispenser-installation': typeof ServicesFuelDispenserInstallationRoute
+  '/services/fuel-line-pressure-test': typeof ServicesFuelLinePressureTestRoute
+  '/services/fuel-piping-systems': typeof ServicesFuelPipingSystemsRoute
+  '/services/hydrotesting': typeof ServicesHydrotestingRoute
+  '/services/petrol-station-equipment-supply': typeof ServicesPetrolStationEquipmentSupplyRoute
+  '/services/petrol-station-installation': typeof ServicesPetrolStationInstallationRoute
+  '/services/petrol-station-maintenance': typeof ServicesPetrolStationMaintenanceRoute
+  '/services/petroleum-equipment-sales': typeof ServicesPetroleumEquipmentSalesRoute
+  '/services/pump-spare-parts': typeof ServicesPumpSparePartsRoute
+  '/services/tank-calibration': typeof ServicesTankCalibrationRoute
+  '/services/tank-fabrication-repairs': typeof ServicesTankFabricationRepairsRoute
+  '/services/transportation': typeof ServicesTransportationRoute
+  '/services/underground-fuel-tank-installation': typeof ServicesUndergroundFuelTankInstallationRoute
+  '/services/': typeof ServicesIndexRoute
   '/projects/blog/slug': typeof ProjectsBlogChar91slugChar93Route
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
-  '/blog': typeof BlogRoute
   '/contact': typeof ContactRoute
-  '/farms': typeof FarmsRoute
   '/projects': typeof ProjectsRouteWithChildren
-  '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/projects/slug': typeof ProjectsChar91slugChar93Route
+  '/services/branding-works': typeof ServicesBrandingWorksRoute
+  '/services/canopy-fabrication-installation': typeof ServicesCanopyFabricationInstallationRoute
+  '/services/commercial-site-maintenance': typeof ServicesCommercialSiteMaintenanceRoute
+  '/services/electrical-installation': typeof ServicesElectricalInstallationRoute
+  '/services/epra-compliance': typeof ServicesEpraComplianceRoute
+  '/services/fuel-dispenser-installation': typeof ServicesFuelDispenserInstallationRoute
+  '/services/fuel-line-pressure-test': typeof ServicesFuelLinePressureTestRoute
+  '/services/fuel-piping-systems': typeof ServicesFuelPipingSystemsRoute
+  '/services/hydrotesting': typeof ServicesHydrotestingRoute
+  '/services/petrol-station-equipment-supply': typeof ServicesPetrolStationEquipmentSupplyRoute
+  '/services/petrol-station-installation': typeof ServicesPetrolStationInstallationRoute
+  '/services/petrol-station-maintenance': typeof ServicesPetrolStationMaintenanceRoute
+  '/services/petroleum-equipment-sales': typeof ServicesPetroleumEquipmentSalesRoute
+  '/services/pump-spare-parts': typeof ServicesPumpSparePartsRoute
+  '/services/tank-calibration': typeof ServicesTankCalibrationRoute
+  '/services/tank-fabrication-repairs': typeof ServicesTankFabricationRepairsRoute
+  '/services/transportation': typeof ServicesTransportationRoute
+  '/services/underground-fuel-tank-installation': typeof ServicesUndergroundFuelTankInstallationRoute
+  '/services': typeof ServicesIndexRoute
   '/projects/blog/slug': typeof ProjectsBlogChar91slugChar93Route
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
-  '/blog': typeof BlogRoute
   '/contact': typeof ContactRoute
-  '/farms': typeof FarmsRoute
   '/projects': typeof ProjectsRouteWithChildren
-  '/services': typeof ServicesRoute
+  '/services': typeof ServicesRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/projects/slug': typeof ProjectsChar91slugChar93Route
+  '/services/branding-works': typeof ServicesBrandingWorksRoute
+  '/services/canopy-fabrication-installation': typeof ServicesCanopyFabricationInstallationRoute
+  '/services/commercial-site-maintenance': typeof ServicesCommercialSiteMaintenanceRoute
+  '/services/electrical-installation': typeof ServicesElectricalInstallationRoute
+  '/services/epra-compliance': typeof ServicesEpraComplianceRoute
+  '/services/fuel-dispenser-installation': typeof ServicesFuelDispenserInstallationRoute
+  '/services/fuel-line-pressure-test': typeof ServicesFuelLinePressureTestRoute
+  '/services/fuel-piping-systems': typeof ServicesFuelPipingSystemsRoute
+  '/services/hydrotesting': typeof ServicesHydrotestingRoute
+  '/services/petrol-station-equipment-supply': typeof ServicesPetrolStationEquipmentSupplyRoute
+  '/services/petrol-station-installation': typeof ServicesPetrolStationInstallationRoute
+  '/services/petrol-station-maintenance': typeof ServicesPetrolStationMaintenanceRoute
+  '/services/petroleum-equipment-sales': typeof ServicesPetroleumEquipmentSalesRoute
+  '/services/pump-spare-parts': typeof ServicesPumpSparePartsRoute
+  '/services/tank-calibration': typeof ServicesTankCalibrationRoute
+  '/services/tank-fabrication-repairs': typeof ServicesTankFabricationRepairsRoute
+  '/services/transportation': typeof ServicesTransportationRoute
+  '/services/underground-fuel-tank-installation': typeof ServicesUndergroundFuelTankInstallationRoute
+  '/services/': typeof ServicesIndexRoute
   '/projects/blog/slug': typeof ProjectsBlogChar91slugChar93Route
 }
 export interface FileRouteTypes {
@@ -115,48 +279,96 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/about'
-    | '/blog'
     | '/contact'
-    | '/farms'
     | '/projects'
     | '/services'
     | '/sitemap.xml'
     | '/projects/slug'
+    | '/services/branding-works'
+    | '/services/canopy-fabrication-installation'
+    | '/services/commercial-site-maintenance'
+    | '/services/electrical-installation'
+    | '/services/epra-compliance'
+    | '/services/fuel-dispenser-installation'
+    | '/services/fuel-line-pressure-test'
+    | '/services/fuel-piping-systems'
+    | '/services/hydrotesting'
+    | '/services/petrol-station-equipment-supply'
+    | '/services/petrol-station-installation'
+    | '/services/petrol-station-maintenance'
+    | '/services/petroleum-equipment-sales'
+    | '/services/pump-spare-parts'
+    | '/services/tank-calibration'
+    | '/services/tank-fabrication-repairs'
+    | '/services/transportation'
+    | '/services/underground-fuel-tank-installation'
+    | '/services/'
     | '/projects/blog/slug'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/about'
-    | '/blog'
     | '/contact'
-    | '/farms'
     | '/projects'
-    | '/services'
     | '/sitemap.xml'
     | '/projects/slug'
+    | '/services/branding-works'
+    | '/services/canopy-fabrication-installation'
+    | '/services/commercial-site-maintenance'
+    | '/services/electrical-installation'
+    | '/services/epra-compliance'
+    | '/services/fuel-dispenser-installation'
+    | '/services/fuel-line-pressure-test'
+    | '/services/fuel-piping-systems'
+    | '/services/hydrotesting'
+    | '/services/petrol-station-equipment-supply'
+    | '/services/petrol-station-installation'
+    | '/services/petrol-station-maintenance'
+    | '/services/petroleum-equipment-sales'
+    | '/services/pump-spare-parts'
+    | '/services/tank-calibration'
+    | '/services/tank-fabrication-repairs'
+    | '/services/transportation'
+    | '/services/underground-fuel-tank-installation'
+    | '/services'
     | '/projects/blog/slug'
   id:
     | '__root__'
     | '/'
     | '/about'
-    | '/blog'
     | '/contact'
-    | '/farms'
     | '/projects'
     | '/services'
     | '/sitemap.xml'
     | '/projects/slug'
+    | '/services/branding-works'
+    | '/services/canopy-fabrication-installation'
+    | '/services/commercial-site-maintenance'
+    | '/services/electrical-installation'
+    | '/services/epra-compliance'
+    | '/services/fuel-dispenser-installation'
+    | '/services/fuel-line-pressure-test'
+    | '/services/fuel-piping-systems'
+    | '/services/hydrotesting'
+    | '/services/petrol-station-equipment-supply'
+    | '/services/petrol-station-installation'
+    | '/services/petrol-station-maintenance'
+    | '/services/petroleum-equipment-sales'
+    | '/services/pump-spare-parts'
+    | '/services/tank-calibration'
+    | '/services/tank-fabrication-repairs'
+    | '/services/transportation'
+    | '/services/underground-fuel-tank-installation'
+    | '/services/'
     | '/projects/blog/slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
-  BlogRoute: typeof BlogRoute
   ContactRoute: typeof ContactRoute
-  FarmsRoute: typeof FarmsRoute
   ProjectsRoute: typeof ProjectsRouteWithChildren
-  ServicesRoute: typeof ServicesRoute
+  ServicesRoute: typeof ServicesRouteWithChildren
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
 }
 
@@ -183,25 +395,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProjectsRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/farms': {
-      id: '/farms'
-      path: '/farms'
-      fullPath: '/farms'
-      preLoaderRoute: typeof FarmsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/contact': {
       id: '/contact'
       path: '/contact'
       fullPath: '/contact'
       preLoaderRoute: typeof ContactRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/blog': {
-      id: '/blog'
-      path: '/blog'
-      fullPath: '/blog'
-      preLoaderRoute: typeof BlogRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/about': {
@@ -217,6 +415,139 @@ declare module '@tanstack/react-router' {
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/services/': {
+      id: '/services/'
+      path: '/'
+      fullPath: '/services/'
+      preLoaderRoute: typeof ServicesIndexRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/underground-fuel-tank-installation': {
+      id: '/services/underground-fuel-tank-installation'
+      path: '/underground-fuel-tank-installation'
+      fullPath: '/services/underground-fuel-tank-installation'
+      preLoaderRoute: typeof ServicesUndergroundFuelTankInstallationRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/transportation': {
+      id: '/services/transportation'
+      path: '/transportation'
+      fullPath: '/services/transportation'
+      preLoaderRoute: typeof ServicesTransportationRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/tank-fabrication-repairs': {
+      id: '/services/tank-fabrication-repairs'
+      path: '/tank-fabrication-repairs'
+      fullPath: '/services/tank-fabrication-repairs'
+      preLoaderRoute: typeof ServicesTankFabricationRepairsRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/tank-calibration': {
+      id: '/services/tank-calibration'
+      path: '/tank-calibration'
+      fullPath: '/services/tank-calibration'
+      preLoaderRoute: typeof ServicesTankCalibrationRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/pump-spare-parts': {
+      id: '/services/pump-spare-parts'
+      path: '/pump-spare-parts'
+      fullPath: '/services/pump-spare-parts'
+      preLoaderRoute: typeof ServicesPumpSparePartsRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/petroleum-equipment-sales': {
+      id: '/services/petroleum-equipment-sales'
+      path: '/petroleum-equipment-sales'
+      fullPath: '/services/petroleum-equipment-sales'
+      preLoaderRoute: typeof ServicesPetroleumEquipmentSalesRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/petrol-station-maintenance': {
+      id: '/services/petrol-station-maintenance'
+      path: '/petrol-station-maintenance'
+      fullPath: '/services/petrol-station-maintenance'
+      preLoaderRoute: typeof ServicesPetrolStationMaintenanceRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/petrol-station-installation': {
+      id: '/services/petrol-station-installation'
+      path: '/petrol-station-installation'
+      fullPath: '/services/petrol-station-installation'
+      preLoaderRoute: typeof ServicesPetrolStationInstallationRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/petrol-station-equipment-supply': {
+      id: '/services/petrol-station-equipment-supply'
+      path: '/petrol-station-equipment-supply'
+      fullPath: '/services/petrol-station-equipment-supply'
+      preLoaderRoute: typeof ServicesPetrolStationEquipmentSupplyRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/hydrotesting': {
+      id: '/services/hydrotesting'
+      path: '/hydrotesting'
+      fullPath: '/services/hydrotesting'
+      preLoaderRoute: typeof ServicesHydrotestingRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/fuel-piping-systems': {
+      id: '/services/fuel-piping-systems'
+      path: '/fuel-piping-systems'
+      fullPath: '/services/fuel-piping-systems'
+      preLoaderRoute: typeof ServicesFuelPipingSystemsRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/fuel-line-pressure-test': {
+      id: '/services/fuel-line-pressure-test'
+      path: '/fuel-line-pressure-test'
+      fullPath: '/services/fuel-line-pressure-test'
+      preLoaderRoute: typeof ServicesFuelLinePressureTestRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/fuel-dispenser-installation': {
+      id: '/services/fuel-dispenser-installation'
+      path: '/fuel-dispenser-installation'
+      fullPath: '/services/fuel-dispenser-installation'
+      preLoaderRoute: typeof ServicesFuelDispenserInstallationRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/epra-compliance': {
+      id: '/services/epra-compliance'
+      path: '/epra-compliance'
+      fullPath: '/services/epra-compliance'
+      preLoaderRoute: typeof ServicesEpraComplianceRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/electrical-installation': {
+      id: '/services/electrical-installation'
+      path: '/electrical-installation'
+      fullPath: '/services/electrical-installation'
+      preLoaderRoute: typeof ServicesElectricalInstallationRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/commercial-site-maintenance': {
+      id: '/services/commercial-site-maintenance'
+      path: '/commercial-site-maintenance'
+      fullPath: '/services/commercial-site-maintenance'
+      preLoaderRoute: typeof ServicesCommercialSiteMaintenanceRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/canopy-fabrication-installation': {
+      id: '/services/canopy-fabrication-installation'
+      path: '/canopy-fabrication-installation'
+      fullPath: '/services/canopy-fabrication-installation'
+      preLoaderRoute: typeof ServicesCanopyFabricationInstallationRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/branding-works': {
+      id: '/services/branding-works'
+      path: '/branding-works'
+      fullPath: '/services/branding-works'
+      preLoaderRoute: typeof ServicesBrandingWorksRouteImport
+      parentRoute: typeof ServicesRoute
     }
     '/projects/slug': {
       id: '/projects/slug'
@@ -249,14 +580,66 @@ const ProjectsRouteWithChildren = ProjectsRoute._addFileChildren(
   ProjectsRouteChildren,
 )
 
+interface ServicesRouteChildren {
+  ServicesBrandingWorksRoute: typeof ServicesBrandingWorksRoute
+  ServicesCanopyFabricationInstallationRoute: typeof ServicesCanopyFabricationInstallationRoute
+  ServicesCommercialSiteMaintenanceRoute: typeof ServicesCommercialSiteMaintenanceRoute
+  ServicesElectricalInstallationRoute: typeof ServicesElectricalInstallationRoute
+  ServicesEpraComplianceRoute: typeof ServicesEpraComplianceRoute
+  ServicesFuelDispenserInstallationRoute: typeof ServicesFuelDispenserInstallationRoute
+  ServicesFuelLinePressureTestRoute: typeof ServicesFuelLinePressureTestRoute
+  ServicesFuelPipingSystemsRoute: typeof ServicesFuelPipingSystemsRoute
+  ServicesHydrotestingRoute: typeof ServicesHydrotestingRoute
+  ServicesPetrolStationEquipmentSupplyRoute: typeof ServicesPetrolStationEquipmentSupplyRoute
+  ServicesPetrolStationInstallationRoute: typeof ServicesPetrolStationInstallationRoute
+  ServicesPetrolStationMaintenanceRoute: typeof ServicesPetrolStationMaintenanceRoute
+  ServicesPetroleumEquipmentSalesRoute: typeof ServicesPetroleumEquipmentSalesRoute
+  ServicesPumpSparePartsRoute: typeof ServicesPumpSparePartsRoute
+  ServicesTankCalibrationRoute: typeof ServicesTankCalibrationRoute
+  ServicesTankFabricationRepairsRoute: typeof ServicesTankFabricationRepairsRoute
+  ServicesTransportationRoute: typeof ServicesTransportationRoute
+  ServicesUndergroundFuelTankInstallationRoute: typeof ServicesUndergroundFuelTankInstallationRoute
+  ServicesIndexRoute: typeof ServicesIndexRoute
+}
+
+const ServicesRouteChildren: ServicesRouteChildren = {
+  ServicesBrandingWorksRoute: ServicesBrandingWorksRoute,
+  ServicesCanopyFabricationInstallationRoute:
+    ServicesCanopyFabricationInstallationRoute,
+  ServicesCommercialSiteMaintenanceRoute:
+    ServicesCommercialSiteMaintenanceRoute,
+  ServicesElectricalInstallationRoute: ServicesElectricalInstallationRoute,
+  ServicesEpraComplianceRoute: ServicesEpraComplianceRoute,
+  ServicesFuelDispenserInstallationRoute:
+    ServicesFuelDispenserInstallationRoute,
+  ServicesFuelLinePressureTestRoute: ServicesFuelLinePressureTestRoute,
+  ServicesFuelPipingSystemsRoute: ServicesFuelPipingSystemsRoute,
+  ServicesHydrotestingRoute: ServicesHydrotestingRoute,
+  ServicesPetrolStationEquipmentSupplyRoute:
+    ServicesPetrolStationEquipmentSupplyRoute,
+  ServicesPetrolStationInstallationRoute:
+    ServicesPetrolStationInstallationRoute,
+  ServicesPetrolStationMaintenanceRoute: ServicesPetrolStationMaintenanceRoute,
+  ServicesPetroleumEquipmentSalesRoute: ServicesPetroleumEquipmentSalesRoute,
+  ServicesPumpSparePartsRoute: ServicesPumpSparePartsRoute,
+  ServicesTankCalibrationRoute: ServicesTankCalibrationRoute,
+  ServicesTankFabricationRepairsRoute: ServicesTankFabricationRepairsRoute,
+  ServicesTransportationRoute: ServicesTransportationRoute,
+  ServicesUndergroundFuelTankInstallationRoute:
+    ServicesUndergroundFuelTankInstallationRoute,
+  ServicesIndexRoute: ServicesIndexRoute,
+}
+
+const ServicesRouteWithChildren = ServicesRoute._addFileChildren(
+  ServicesRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
-  BlogRoute: BlogRoute,
   ContactRoute: ContactRoute,
-  FarmsRoute: FarmsRoute,
   ProjectsRoute: ProjectsRouteWithChildren,
-  ServicesRoute: ServicesRoute,
+  ServicesRoute: ServicesRouteWithChildren,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
 }
 export const routeTree = rootRouteImport

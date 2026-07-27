@@ -1,4 +1,4 @@
-import { Link } from "@tanstack/react-router";
+﻿import { Link } from "@tanstack/react-router";
 import { Phone, Mail, MapPin } from "lucide-react";
 import logo from "@/assets/dzizi-logo.jpg";
 import { SocialLinks } from "@/components/SocialLinks";
@@ -12,7 +12,7 @@ export function Footer() {
             <img src={logo} alt="D'Zizi Petroleum" className="h-10 w-auto" />
           </div>
           <p className="mt-4 max-w-md text-sm text-white/70">
-            D'Zizi Petroleum Services Limited — Kenya's trusted partner for
+            D'Zizi Petroleum Services Limited - Kenya's trusted partner for
             petroleum equipment sales, installation, hydrotesting, calibration
             and petrol station maintenance.
           </p>

@@ -35,10 +35,10 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Kenya's trusted petroleum partner. Equipment supply, petrol station installation, hydrotesting, calibration and maintenance — done right, first time.",
+          "Kenya's trusted petroleum partner. Equipment supply, petrol station installation, hydrotesting, calibration and maintenance - done right, first time.",
       },
       { property: "og:title", content: "D'Zizi Petroleum Services Limited" },
-      { property: "og:description", content: "Kenya's trusted petroleum partner. Equipment supply, petrol station installation, hydrotesting, calibration and maintenance — done right, first time." },
+      { property: "og:description", content: "Kenya's trusted petroleum partner. Equipment supply, petrol station installation, hydrotesting, calibration and maintenance - done right, first time." },
       { property: "og:url", content: "https://dzizipetroleum.co.ke/" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -63,7 +63,7 @@ export const Route = createFileRoute("/")({
               name: "What petroleum equipment do you supply in Kenya?",
               acceptedAnswer: {
                 "@type": "Answer",
-                text: "We supply underground (UST) and above-ground (AST) storage tanks, fuel dispensers, submersible and suction pumps, air compressors, automatic tank gauges (ATGs) and standby generators — all EPRA-aligned.",
+                text: "We supply underground (UST) and above-ground (AST) storage tanks, fuel dispensers, submersible and suction pumps, air compressors, automatic tank gauges (ATGs) and standby generators - all EPRA-aligned.",
               },
             },
             {
@@ -138,12 +138,12 @@ function CountUp({ target, suffix = "" }: { target: number; suffix?: string }) {
 }
 
 const services = [
-  { icon: Fuel, title: "Petroleum Equipment Sales", desc: "Underground & above-ground tanks, pumps, compressors, air gauges and generators.", img: petrolStation },
-  { icon: Droplets, title: "Hydrotesting", desc: "Pressure testing to guarantee tank integrity and EPRA-aligned safety.", img: hydrotestingImg },
-  { icon: Hammer, title: "Installation Services", desc: "Suction, breather and offloading lines installed by certified technicians.", img: installationImg },
-  { icon: Wrench, title: "Station Maintenance", desc: "Keep your forecourt operational, compliant and profitable around the clock.", img: maintenanceImg },
-  { icon: Gauge, title: "Tank Calibration", desc: "Precision wet & dry calibration for accurate dispensing and compliance.", img: calibrationImg },
-  { icon: ShieldCheck, title: "Commercial Site Maintenance", desc: "Maintenance contracts for depots, industrial yards and fleet sites.", img: overhaulImg },
+  { icon: Fuel, title: "Petroleum Equipment Sales", desc: "Underground & above-ground tanks, pumps, compressors, air gauges and generators.", img: petrolStation, href: "/services/petroleum-equipment-sales" },
+  { icon: Droplets, title: "Hydrotesting", desc: "Pressure testing to guarantee tank integrity and EPRA-aligned safety.", img: hydrotestingImg, href: "/services/hydrotesting" },
+  { icon: Hammer, title: "Petrol Station Installation", desc: "Suction, breather and offloading lines installed by certified technicians.", img: installationImg, href: "/services/petrol-station-installation" },
+  { icon: Wrench, title: "Station Maintenance", desc: "Keep your forecourt operational, compliant and profitable around the clock.", img: maintenanceImg, href: "/services/petrol-station-maintenance" },
+  { icon: Gauge, title: "Tank Calibration", desc: "Precision wet & dry calibration for accurate dispensing and compliance.", img: calibrationImg, href: "/services/tank-calibration" },
+  { icon: ShieldCheck, title: "Commercial Site Maintenance", desc: "Maintenance contracts for depots, industrial yards and fleet sites.", img: overhaulImg, href: "/services/commercial-site-maintenance" },
 ];
 
 function Home() {
@@ -221,13 +221,14 @@ function Home() {
           </Link>
         </div>
         <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {services.map(({ icon: Icon, title, desc, img }, idx) => (
-            <div
+          {services.map(({ icon: Icon, title, desc, img, href }, idx) => (
+            <a
               key={title}
+              href={href}
               className={`reveal reveal-delay-${idx + 1} group relative overflow-hidden rounded-2xl border border-border bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg`}
             >
               <div className="mb-4 overflow-hidden rounded-lg">
-                <img src={img} alt={title} className="h-40 w-full object-cover" />
+                <img src={img} alt={title} className="h-40 w-full object-cover transition duration-500 group-hover:scale-105" />
               </div>
               <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary transition group-hover:bg-primary group-hover:text-primary-foreground">
                 <Icon className="h-6 w-6" />
@@ -235,7 +236,7 @@ function Home() {
               <h3 className="text-lg font-semibold">{title}</h3>
               <p className="mt-2 text-sm text-muted-foreground">{desc}</p>
               <div className="absolute right-0 top-0 h-1 w-0 bg-gradient-to-r from-primary to-secondary transition-all duration-500 group-hover:w-full" />
-            </div>
+            </a>
           ))}
         </div>
       </section>
@@ -292,7 +293,7 @@ function Home() {
             },
             {
               q: "What petroleum equipment do you supply?",
-              a: "Underground and above-ground storage tanks, fuel dispensers, submersible and suction pumps, air compressors, automatic tank gauges (ATGs) and standby generators — all EPRA-aligned.",
+              a: "Underground and above-ground storage tanks, fuel dispensers, submersible and suction pumps, air compressors, automatic tank gauges (ATGs) and standby generators - all EPRA-aligned.",
             },
             {
               q: "Are you EPRA-licensed?",
@@ -333,7 +334,7 @@ function Home() {
             Building a new station or upgrading an existing one?
           </h2>
           <p className="mt-3 max-w-2xl text-white/85">
-            Talk to our engineers today — we'll scope your project, recommend the right equipment and deliver end-to-end.
+            Talk to our engineers today - we'll scope your project, recommend the right equipment and deliver end-to-end.
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
             <Link

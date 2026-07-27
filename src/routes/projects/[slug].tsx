@@ -10,7 +10,7 @@ import tank from "@/assets/projects/replace.jpeg";
 export const Route = createFileRoute("/projects/slug")({
   component: ProjectDetail,
   head: ({ params }) => ({
-    meta: [{ title: `Project — ${params.slug}` }],
+    meta: [{ title: `Project - ${(params as Record<string, string>).slug ?? ""}` }],
   }),
 });
 
@@ -25,7 +25,7 @@ const projects = [
 ];
 
 function ProjectDetail() {
-  const { slug } = useParams();
+  const { slug } = useParams({ strict: false }) as { slug: string };
   const project = projects.find((p) => p.slug === slug);
 
   if (!project) {

@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+﻿import { createFileRoute, Link } from "@tanstack/react-router";
 import { CheckCircle2, Award, Users, Target } from "lucide-react";
 import petrolStation from "@/assets/projects/equipment.jpg";
 import installationImg from "@/assets/projects/team.jpeg";
@@ -12,7 +12,7 @@ export const Route = createFileRoute("/about")({
       {
         name: "description",
         content:
-          "D'Zizi Petroleum Services Limited — a fully Kenyan-owned company delivering petroleum equipment, petrol station installation, hydrotesting, calibration and maintenance nationwide.",
+          "D'Zizi Petroleum Services Limited - a fully Kenyan-owned company delivering petroleum equipment, petrol station installation, hydrotesting, calibration and maintenance nationwide.",
       },
       { property: "og:title", content: "About D'Zizi Petroleum | Kenya Petroleum Services" },
       { property: "og:url", content: "https://dzizipetroleum.co.ke/about" },
@@ -57,14 +57,14 @@ function About() {
           <h2 className="text-2xl font-bold">Our mission</h2>
           <p className="mt-3 text-muted-foreground">
             To deliver safe, reliable and profitable fuel-handling infrastructure
-            to every corner of Kenya — backed by responsive after-sales support.
+            to every corner of Kenya - backed by responsive after-sales support.
           </p>
         </div>
         <div>
           <h2 className="text-2xl font-bold">Why clients choose us</h2>
           <ul className="mt-3 space-y-2 text-muted-foreground">
             {[
-              "End-to-end project delivery — from design to commissioning",
+              "End-to-end project delivery - from design to commissioning",
               "Transparent pricing and clear timelines",
               "Genuine equipment with full warranty support",
               "24/7 emergency response across major routes",

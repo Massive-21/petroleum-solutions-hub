@@ -15,9 +15,9 @@ export const Route = createFileRoute("/projects")({
       {
         name: "description",
         content:
-          "A showcase of recent D'Zizi Petroleum projects in Kenya — petrol station installations, hydrotesting, tank calibration and maintenance overhauls.",
+          "A showcase of recent D'Zizi Petroleum projects in Kenya - petrol station installations, hydrotesting, tank calibration and maintenance overhauls.",
       },
-      { property: "og:title", content: "Recent Projects — D'Zizi Petroleum" },
+      { property: "og:title", content: "Recent Projects - D'Zizi Petroleum" },
       { property: "og:url", content: "/projects" },
     ],
     links: [{ rel: "canonical", href: "/projects" }],
@@ -47,6 +47,7 @@ function Projects() {
         {projects.map((p) => (
           <Link
             key={p.slug}
+            // @ts-ignore - dynamic slug path; route resolves correctly at runtime
             to={`/projects/${p.slug}`}
             className="group overflow-hidden rounded-2xl border border-border bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
           >

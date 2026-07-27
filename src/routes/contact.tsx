@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+﻿import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { z } from "zod";
 import { Phone, Mail, MapPin, MessageCircle, Loader2, CheckCircle2 } from "lucide-react";
@@ -12,7 +12,7 @@ export const Route = createFileRoute("/contact")({
       {
         name: "description",
         content:
-          "Contact D'Zizi Petroleum Services Limited — call +254 702 587 919 or WhatsApp us. We cover Nairobi, Mombasa, Kisumu, Eldoret and all of Kenya.",
+          "Contact D'Zizi Petroleum Services Limited - call +254 702 587 919 or WhatsApp us. We cover Nairobi, Mombasa, Kisumu, Eldoret and all of Kenya.",
       },
       { property: "og:title", content: "Contact D'Zizi Petroleum | Kenya" },
       { property: "og:url", content: "https://dzizipetroleum.co.ke/contact" },
@@ -76,7 +76,7 @@ function Contact() {
       <p className="text-sm font-semibold uppercase tracking-wider text-primary">Contact</p>
       <h1 className="mt-2 max-w-3xl text-4xl font-extrabold sm:text-5xl">Let's talk about your project.</h1>
       <p className="mt-4 max-w-2xl text-lg text-muted-foreground">
-        Tell us what you need — quote, site visit, emergency call-out — and our team will respond within one business day.
+        Tell us what you need - quote, site visit, emergency call-out - and our team will respond within one business day.
       </p>
 
       <div className="mt-12 grid gap-8 md:grid-cols-5">
@@ -114,7 +114,7 @@ function Contact() {
             <MapPin className="mt-1 h-5 w-5 text-primary" />
             <div>
               <div className="text-sm font-semibold">Based in</div>
-              <div className="text-sm text-muted-foreground">Nairobi, Kenya — serving nationwide</div>
+              <div className="text-sm text-muted-foreground">Nairobi, Kenya - serving nationwide</div>
             </div>
           </div>
         </aside>
@@ -126,7 +126,7 @@ function Contact() {
           {success ? (
             <div className="flex flex-col items-center gap-3 py-10 text-center">
               <CheckCircle2 className="h-12 w-12 text-primary" />
-              <h2 className="text-xl font-semibold">Thanks — we got your message!</h2>
+              <h2 className="text-xl font-semibold">Thanks - we got your message!</h2>
               <p className="text-sm text-muted-foreground">
                 Our team will be in touch within one business day.
               </p>
