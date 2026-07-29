@@ -144,88 +144,84 @@ function ProjectDetail() {
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6">
-      {/* Header */}
-      <div className="mb-8">
-        <Link
-          to="/projects"
-          className="inline-flex items-center gap-1 text-sm text-primary hover:underline"
-        >
-          ← Back to projects
-        </Link>
-        <div className="mt-4 flex flex-wrap items-center gap-3">
-          {project.badge && (
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-primary px-3 py-1 text-xs font-bold text-white">
-              <span className="relative flex h-2 w-2">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-white opacity-75" />
-                <span className="relative inline-flex h-2 w-2 rounded-full bg-white" />
+      <Link
+        to="/projects"
+        className="inline-flex items-center gap-1 text-sm text-primary hover:underline"
+      >
+        ← Back to projects
+      </Link>
+
+      {/* Hero: text left, image right */}
+      <div className="mt-8 grid items-center gap-10 lg:grid-cols-2">
+        {/* Left — text */}
+        <div>
+          <div className="flex flex-wrap items-center gap-3">
+            {project.badge && (
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-primary px-3 py-1 text-xs font-bold text-white">
+                <span className="relative flex h-2 w-2">
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-white opacity-75" />
+                  <span className="relative inline-flex h-2 w-2 rounded-full bg-white" />
+                </span>
+                {project.badge}
               </span>
-              {project.badge}
-            </span>
-          )}
-          {project.location && (
-            <span className="text-sm font-medium text-muted-foreground">
-              {project.location}
-            </span>
-          )}
-        </div>
-        <h1 className="mt-3 text-3xl font-extrabold sm:text-4xl">
-          {project.title}
-        </h1>
-      </div>
+            )}
+            {project.location && (
+              <span className="text-sm font-medium text-muted-foreground">
+                {project.location}
+              </span>
+            )}
+          </div>
 
-      {/* Hero image */}
-      <div className="overflow-hidden rounded-2xl">
-        <img
-          src={project.img}
-          alt={project.title}
-          className="max-h-[520px] w-full object-cover"
-        />
-      </div>
+          <h1 className="mt-4 text-3xl font-extrabold leading-tight sm:text-4xl lg:text-5xl">
+            {project.title}
+          </h1>
 
-      {/* Content */}
-      <div className="mt-8 grid gap-10 lg:grid-cols-3">
-        <div className="lg:col-span-2">
-          <p className="text-base leading-relaxed text-muted-foreground">
+          <p className="mt-5 text-base leading-relaxed text-muted-foreground">
             {project.content}
           </p>
 
           {project.highlights && (
-            <div className="mt-8">
-              <h2 className="text-xl font-bold">What We Delivered</h2>
-              <ul className="mt-4 space-y-3">
-                {project.highlights.map((h, i) => (
-                  <li key={i} className="flex gap-3 text-sm text-muted-foreground">
-                    <span className="mt-0.5 h-5 w-5 shrink-0 rounded-full bg-primary/10 text-center text-xs font-bold leading-5 text-primary">
-                      {i + 1}
-                    </span>
-                    {h}
-                  </li>
-                ))}
-              </ul>
-            </div>
+            <ul className="mt-6 space-y-3">
+              {project.highlights.map((h, i) => (
+                <li key={i} className="flex gap-3 text-sm text-muted-foreground">
+                  <span className="mt-0.5 h-5 w-5 shrink-0 rounded-full bg-primary/10 text-center text-xs font-bold leading-5 text-primary">
+                    {i + 1}
+                  </span>
+                  {h}
+                </li>
+              ))}
+            </ul>
           )}
+
+          <div className="mt-8 rounded-2xl border border-border bg-white p-6 shadow-sm">
+            <h3 className="font-semibold">Interested in a similar project?</h3>
+            <p className="mt-2 text-sm text-muted-foreground">
+              We deliver full turnkey petroleum station builds across Kenya — from equipment supply to commissioning.
+            </p>
+            <Link
+              to="/contact"
+              className="mt-4 inline-flex w-full items-center justify-center rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-white transition hover:opacity-90"
+            >
+              Get a free consultation
+            </Link>
+            <a
+              href="https://wa.me/254702587919"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-3 inline-flex w-full items-center justify-center rounded-full border border-border px-5 py-2.5 text-sm font-semibold transition hover:border-primary hover:text-primary"
+            >
+              WhatsApp us
+            </a>
+          </div>
         </div>
 
-        <div className="h-fit rounded-2xl border border-border bg-white p-6 shadow-sm">
-          <h3 className="font-semibold">Interested in a similar project?</h3>
-          <p className="mt-2 text-sm text-muted-foreground">
-            We deliver full turnkey petroleum station builds across Kenya — from
-            equipment supply to commissioning.
-          </p>
-          <Link
-            to="/contact"
-            className="mt-4 inline-flex w-full items-center justify-center rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-white transition hover:opacity-90"
-          >
-            Get a free consultation
-          </Link>
-          <a
-            href="https://wa.me/254702587919"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-3 inline-flex w-full items-center justify-center rounded-full border border-border px-5 py-2.5 text-sm font-semibold transition hover:border-primary hover:text-primary"
-          >
-            WhatsApp us
-          </a>
+        {/* Right — hero image */}
+        <div className="flex justify-center lg:justify-end">
+          <img
+            src={project.img}
+            alt={project.title}
+            className="max-h-[620px] w-auto rounded-2xl object-contain shadow-lg"
+          />
         </div>
       </div>
 
@@ -240,21 +236,21 @@ function ProjectDetail() {
             {project.gallery.map((item, i) => (
               <div
                 key={i}
-                className={`group overflow-hidden rounded-xl border border-border bg-muted ${item.type === "video" ? "col-span-2 sm:col-span-3 lg:col-span-2" : "aspect-square"}`}
+                className={`group overflow-hidden rounded-xl border border-border bg-muted ${item.type === "video" ? "col-span-2 sm:col-span-3 lg:col-span-2" : ""}`}
               >
                 {item.type === "video" ? (
                   <video
                     src={item.src}
                     controls
                     playsInline
-                    className="h-full w-full object-cover"
+                    className="w-full"
                     style={{ maxHeight: "340px" }}
                   />
                 ) : (
                   <img
                     src={item.src}
                     alt={`${project.title} – photo ${i + 1}`}
-                    className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                    className="w-full h-auto transition duration-500 group-hover:scale-105"
                     loading="lazy"
                   />
                 )}
