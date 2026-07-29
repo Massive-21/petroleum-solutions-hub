@@ -237,6 +237,11 @@
   100% { background-position: 220% center; }
 }
 
+@keyframes shimmer {
+  0%   { transform: translateX(-100%); }
+  100% { transform: translateX(200%); }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .ticker-track,
   .animated-bg::before,

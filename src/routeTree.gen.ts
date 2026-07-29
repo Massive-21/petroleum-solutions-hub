@@ -16,6 +16,7 @@ import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ServicesIndexRouteImport } from './routes/services/index'
+import { Route as ProjectsIndexRouteImport } from './routes/projects/index'
 import { Route as ServicesUndergroundFuelTankInstallationRouteImport } from './routes/services/underground-fuel-tank-installation'
 import { Route as ServicesTransportationRouteImport } from './routes/services/transportation'
 import { Route as ServicesTankFabricationRepairsRouteImport } from './routes/services/tank-fabrication-repairs'
@@ -35,6 +36,7 @@ import { Route as ServicesCommercialSiteMaintenanceRouteImport } from './routes/
 import { Route as ServicesCanopyFabricationInstallationRouteImport } from './routes/services/canopy-fabrication-installation'
 import { Route as ServicesBrandingWorksRouteImport } from './routes/services/branding-works'
 import { Route as ProjectsChar91slugChar93RouteImport } from './routes/projects/[slug]'
+import { Route as ProjectsSlugRouteImport } from './routes/projects/$slug'
 import { Route as ProjectsBlogChar91slugChar93RouteImport } from './routes/projects/blog/[slug]'
 
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
@@ -71,6 +73,11 @@ const ServicesIndexRoute = ServicesIndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => ServicesRoute,
+} as any)
+const ProjectsIndexRoute = ProjectsIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => ProjectsRoute,
 } as any)
 const ServicesUndergroundFuelTankInstallationRoute =
   ServicesUndergroundFuelTankInstallationRouteImport.update({
@@ -180,6 +187,11 @@ const ProjectsChar91slugChar93Route =
     path: '/slug',
     getParentRoute: () => ProjectsRoute,
   } as any)
+const ProjectsSlugRoute = ProjectsSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => ProjectsRoute,
+} as any)
 const ProjectsBlogChar91slugChar93Route =
   ProjectsBlogChar91slugChar93RouteImport.update({
     id: '/blog/slug',
@@ -194,6 +206,7 @@ export interface FileRoutesByFullPath {
   '/projects': typeof ProjectsRouteWithChildren
   '/services': typeof ServicesRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/projects/$slug': typeof ProjectsSlugRoute
   '/projects/slug': typeof ProjectsChar91slugChar93Route
   '/services/branding-works': typeof ServicesBrandingWorksRoute
   '/services/canopy-fabrication-installation': typeof ServicesCanopyFabricationInstallationRoute
@@ -213,6 +226,7 @@ export interface FileRoutesByFullPath {
   '/services/tank-fabrication-repairs': typeof ServicesTankFabricationRepairsRoute
   '/services/transportation': typeof ServicesTransportationRoute
   '/services/underground-fuel-tank-installation': typeof ServicesUndergroundFuelTankInstallationRoute
+  '/projects/': typeof ProjectsIndexRoute
   '/services/': typeof ServicesIndexRoute
   '/projects/blog/slug': typeof ProjectsBlogChar91slugChar93Route
 }
@@ -220,8 +234,8 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
-  '/projects': typeof ProjectsRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/projects/$slug': typeof ProjectsSlugRoute
   '/projects/slug': typeof ProjectsChar91slugChar93Route
   '/services/branding-works': typeof ServicesBrandingWorksRoute
   '/services/canopy-fabrication-installation': typeof ServicesCanopyFabricationInstallationRoute
@@ -241,6 +255,7 @@ export interface FileRoutesByTo {
   '/services/tank-fabrication-repairs': typeof ServicesTankFabricationRepairsRoute
   '/services/transportation': typeof ServicesTransportationRoute
   '/services/underground-fuel-tank-installation': typeof ServicesUndergroundFuelTankInstallationRoute
+  '/projects': typeof ProjectsIndexRoute
   '/services': typeof ServicesIndexRoute
   '/projects/blog/slug': typeof ProjectsBlogChar91slugChar93Route
 }
@@ -252,6 +267,7 @@ export interface FileRoutesById {
   '/projects': typeof ProjectsRouteWithChildren
   '/services': typeof ServicesRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/projects/$slug': typeof ProjectsSlugRoute
   '/projects/slug': typeof ProjectsChar91slugChar93Route
   '/services/branding-works': typeof ServicesBrandingWorksRoute
   '/services/canopy-fabrication-installation': typeof ServicesCanopyFabricationInstallationRoute
@@ -271,6 +287,7 @@ export interface FileRoutesById {
   '/services/tank-fabrication-repairs': typeof ServicesTankFabricationRepairsRoute
   '/services/transportation': typeof ServicesTransportationRoute
   '/services/underground-fuel-tank-installation': typeof ServicesUndergroundFuelTankInstallationRoute
+  '/projects/': typeof ProjectsIndexRoute
   '/services/': typeof ServicesIndexRoute
   '/projects/blog/slug': typeof ProjectsBlogChar91slugChar93Route
 }
@@ -283,6 +300,7 @@ export interface FileRouteTypes {
     | '/projects'
     | '/services'
     | '/sitemap.xml'
+    | '/projects/$slug'
     | '/projects/slug'
     | '/services/branding-works'
     | '/services/canopy-fabrication-installation'
@@ -302,6 +320,7 @@ export interface FileRouteTypes {
     | '/services/tank-fabrication-repairs'
     | '/services/transportation'
     | '/services/underground-fuel-tank-installation'
+    | '/projects/'
     | '/services/'
     | '/projects/blog/slug'
   fileRoutesByTo: FileRoutesByTo
@@ -309,8 +328,8 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/contact'
-    | '/projects'
     | '/sitemap.xml'
+    | '/projects/$slug'
     | '/projects/slug'
     | '/services/branding-works'
     | '/services/canopy-fabrication-installation'
@@ -330,6 +349,7 @@ export interface FileRouteTypes {
     | '/services/tank-fabrication-repairs'
     | '/services/transportation'
     | '/services/underground-fuel-tank-installation'
+    | '/projects'
     | '/services'
     | '/projects/blog/slug'
   id:
@@ -340,6 +360,7 @@ export interface FileRouteTypes {
     | '/projects'
     | '/services'
     | '/sitemap.xml'
+    | '/projects/$slug'
     | '/projects/slug'
     | '/services/branding-works'
     | '/services/canopy-fabrication-installation'
@@ -359,6 +380,7 @@ export interface FileRouteTypes {
     | '/services/tank-fabrication-repairs'
     | '/services/transportation'
     | '/services/underground-fuel-tank-installation'
+    | '/projects/'
     | '/services/'
     | '/projects/blog/slug'
   fileRoutesById: FileRoutesById
@@ -422,6 +444,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/services/'
       preLoaderRoute: typeof ServicesIndexRouteImport
       parentRoute: typeof ServicesRoute
+    }
+    '/projects/': {
+      id: '/projects/'
+      path: '/'
+      fullPath: '/projects/'
+      preLoaderRoute: typeof ProjectsIndexRouteImport
+      parentRoute: typeof ProjectsRoute
     }
     '/services/underground-fuel-tank-installation': {
       id: '/services/underground-fuel-tank-installation'
@@ -556,6 +585,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProjectsChar91slugChar93RouteImport
       parentRoute: typeof ProjectsRoute
     }
+    '/projects/$slug': {
+      id: '/projects/$slug'
+      path: '/$slug'
+      fullPath: '/projects/$slug'
+      preLoaderRoute: typeof ProjectsSlugRouteImport
+      parentRoute: typeof ProjectsRoute
+    }
     '/projects/blog/slug': {
       id: '/projects/blog/slug'
       path: '/blog/slug'
@@ -567,12 +603,16 @@ declare module '@tanstack/react-router' {
 }
 
 interface ProjectsRouteChildren {
+  ProjectsSlugRoute: typeof ProjectsSlugRoute
   ProjectsChar91slugChar93Route: typeof ProjectsChar91slugChar93Route
+  ProjectsIndexRoute: typeof ProjectsIndexRoute
   ProjectsBlogChar91slugChar93Route: typeof ProjectsBlogChar91slugChar93Route
 }
 
 const ProjectsRouteChildren: ProjectsRouteChildren = {
+  ProjectsSlugRoute: ProjectsSlugRoute,
   ProjectsChar91slugChar93Route: ProjectsChar91slugChar93Route,
+  ProjectsIndexRoute: ProjectsIndexRoute,
   ProjectsBlogChar91slugChar93Route: ProjectsBlogChar91slugChar93Route,
 }
 
