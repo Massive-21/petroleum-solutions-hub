@@ -41,7 +41,19 @@ export function Footer() {
       </div>
       <div className="border-t border-white/10">
         <div className="mx-auto max-w-7xl px-4 py-5 text-xs text-white/50 sm:px-6">
-          © {new Date().getFullYear()} D'Zizi Petroleum Services Limited. All rights reserved.
+          <p className="text-center">© {new Date().getFullYear()} D'Zizi Petroleum Services Limited. All rights reserved.</p>
+          <p className="mt-2 flex items-center justify-center gap-1">
+            <span className="text-white/70">Developed by</span>
+            <a
+              href="https://massive-21-elarvex-global-solutions.prime-pool-ke.workers.dev/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded px-1.5 py-0.5 font-semibold underline decoration-2 underline-offset-2"
+              style={{ color: "oklch(0.82 0.17 80)", backgroundColor: "oklch(0.82 0.17 80 / 0.15)" }}
+            >
+              Elarvex Technologies →
+            </a>
+          </p>
         </div>
       </div>
     </footer>
