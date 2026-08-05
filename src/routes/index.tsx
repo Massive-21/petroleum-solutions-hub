@@ -31,14 +31,14 @@ export const Route = createFileRoute("/")({
       { property: "og:image:type", content: "image/png" },
       { name: "twitter:image", content: "https://dzizipetroleum.co.ke/favicon.ico" },
       { name: "twitter:image:alt", content: "D'Zizi Petroleum Services Limited preview image" },
-      { title: "D'Zizi Petroleum | Petrol Station Equipment & Installation in Kenya" },
+      { title: "D'Zizi Petroleum | Petrol Station Installation Company in Kenya" },
       {
         name: "description",
         content:
-          "Kenya's trusted petroleum partner. Equipment supply, petrol station installation, hydrotesting, calibration and maintenance - done right, first time.",
+          "One of Kenya's leading petrol station installation companies. We supply, install and maintain complete petrol stations across all 47 counties. EPRA-compliant, affordable pricing. Free quote: +254 702 587 919.",
       },
       { property: "og:title", content: "D'Zizi Petroleum Services Limited" },
-      { property: "og:description", content: "Kenya's trusted petroleum partner. Equipment supply, petrol station installation, hydrotesting, calibration and maintenance - done right, first time." },
+      { property: "og:description", content: "One of Kenya's leading petrol station installation companies. Equipment supply, installation, hydrotesting, calibration and maintenance across all 47 counties of Kenya." },
       { property: "og:url", content: "https://dzizipetroleum.co.ke/" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -96,6 +96,30 @@ export const Route = createFileRoute("/")({
               acceptedAnswer: {
                 "@type": "Answer",
                 text: "Call or WhatsApp us on +254 702 587 919, or fill in the contact form on our website. We will assess your site and provide a detailed quote at no obligation.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "Which companies install petrol stations in Kenya?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "D'Zizi Petroleum Services Limited is one of Kenya's leading petrol station installation companies, with over 10 years of industry experience. We handle complete turnkey projects from site survey, underground tank installation and piping through to EPRA commissioning. Call +254 702 587 919 to discuss your project.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "I want to install a petrol station in Kenya — where do I start?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "Start by contacting a licensed petrol installation company like D'Zizi Petroleum Services. We will assess your proposed site, advise on EPRA and NEMA requirements, recommend the right tanks and dispensers, coordinate civil works, carry out the full installation, and prepare all documentation for EPRA commissioning and licensing. Call us on +254 702 587 919 for a free site consultation anywhere in Kenya.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "How much does petrol station installation cost in Kenya? Is affordable installation available?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "D'Zizi Petroleum Services offers competitive, transparent pricing for petrol station installation across Kenya. Costs depend on the number of tanks, dispensers, site size and equipment specifications. We offer flexible packages — from equipment supply only to full turnkey projects — so clients can choose what fits their budget. Call +254 702 587 919 for a free, no-obligation quote.",
               },
             },
           ],
@@ -157,13 +181,11 @@ function Home() {
               <span className="h-2 w-2 rounded-full bg-primary" /> Trusted across Kenya
             </span>
             <h1 className="mt-4 text-4xl font-extrabold leading-tight text-foreground sm:text-5xl md:text-6xl">
-              Powering Kenya's{" "}
-              <span className="brand-gradient-text">Fuel Infrastructure</span>
+              Kenya's Leading{" "}
+              <span className="brand-gradient-text">Petrol Station Installation Company</span>
             </h1>
             <p className="mt-5 max-w-xl text-base text-muted-foreground sm:text-lg">
-              D'Zizi Petroleum Services Limited supplies, installs and maintains
-              petrol station equipment across Kenya - from Nairobi to Mombasa,
-              Kisumu, Eldoret and beyond.
+              D'Zizi Petroleum Services Limited is one of Kenya's most trusted petrol station installation companies. We supply, install and maintain complete petrol stations across all 47 counties — from Nairobi to Mombasa, Kisumu, Eldoret and beyond.
             </p>
             <div className="mt-7 flex flex-wrap gap-3">
               <Link
@@ -310,6 +332,18 @@ function Home() {
             {
               q: "How do I get a quote?",
               a: "Call or WhatsApp +254 702 587 919, or fill in the contact form. We assess your site and provide a detailed quote at no obligation.",
+            },
+            {
+              q: "Which companies install petrol stations in Kenya?",
+              a: "D'Zizi Petroleum Services Limited is one of Kenya's leading petrol station installation companies, with over 10 years of experience. We handle complete turnkey petrol station projects from site survey and tank installation through to EPRA commissioning. Call +254 702 587 919 to discuss your project.",
+            },
+            {
+              q: "I want to install a petrol station in Kenya — where do I start?",
+              a: "Contact D'Zizi Petroleum Services first. We will assess your site, advise on EPRA and NEMA requirements, recommend the right equipment, coordinate civil works, carry out the full installation, and prepare all EPRA commissioning documentation. Call +254 702 587 919 for a free consultation anywhere in Kenya.",
+            },
+            {
+              q: "Is affordable petrol station installation available in Kenya?",
+              a: "Yes. D'Zizi Petroleum Services offers competitive, transparent pricing for petrol station installation across Kenya. We offer flexible packages from equipment-only supply through to full turnkey projects, so clients can choose what fits their budget. Call +254 702 587 919 for a free, no-obligation quote.",
             },
           ].map(({ q, a }, i) => (
             <details

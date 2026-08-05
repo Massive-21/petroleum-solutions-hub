@@ -84,7 +84,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "D'Zizi Petroleum Services Limited - Kenya's trusted supplier and installer of petroleum equipment: tanks, pumps, hydrotesting, calibration and petrol station maintenance.",
       },
       { name: "author", content: "D'Zizi Petroleum Services Limited" },
-      { name: "keywords", content: "petroleum equipment Kenya, petrol station installation Nairobi, fuel tank calibration Kenya, hydrotesting Kenya, fuel pump suppliers Kenya, petrol station maintenance" },
+      { name: "keywords", content: "petrol station installation Kenya, petrol installation companies Kenya, petrol station companies in Kenya, tank fabrication Kenya, petroleum equipment Kenya, petrol station cost Kenya, cheap petrol station installation Kenya, petrol station installation Nairobi, fuel tank calibration Kenya, hydrotesting Kenya, fuel pump suppliers Kenya, petrol station maintenance Kenya, EPRA compliance Kenya, underground fuel tank Kenya, install petrol station Kenya" },
       { property: "og:title", content: "D'Zizi Petroleum Services Limited" },
       { property: "og:description", content: "Petroleum equipment, installation, hydrotesting and maintenance across Kenya." },
       { property: "og:type", content: "website" },
@@ -193,6 +193,59 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           sameAs: [
             "https://wa.me/254702587919",
           ],
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          "name": "D'Zizi Petroleum Services Limited",
+          "url": "https://dzizipetroleum.co.ke",
+          "description": "Kenya's leading petrol station installation company. We supply, install and maintain complete petrol stations across all 47 counties of Kenya.",
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": {
+              "@type": "EntryPoint",
+              "urlTemplate": "https://dzizipetroleum.co.ke/services?q={search_term_string}"
+            },
+            "query-input": "required name=search_term_string"
+          }
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "name": "D'Zizi Petroleum Services Limited",
+          "alternateName": ["D'Zizi Petroleum", "Dzizi Petroleum Kenya"],
+          "url": "https://dzizipetroleum.co.ke",
+          "logo": "https://dzizipetroleum.co.ke/og-image.png",
+          "image": "https://dzizipetroleum.co.ke/og-image.png",
+          "description": "One of Kenya's leading petrol station installation companies. D'Zizi Petroleum Services specialises in petrol station installation, tank fabrication, hydrotesting, calibration and full-site maintenance across Kenya.",
+          "telephone": "+254702587919",
+          "email": "info@dzizipetroleum.co.ke",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Nairobi",
+            "addressRegion": "Nairobi County",
+            "addressCountry": "KE"
+          },
+          "areaServed": { "@type": "Country", "name": "Kenya" },
+          "sameAs": [
+            "https://wa.me/254702587919"
+          ],
+          "knowsAbout": [
+            "Petrol Station Installation Kenya",
+            "Petrol Installation Companies Kenya",
+            "Tank Fabrication Kenya",
+            "Underground Fuel Tank Installation Kenya",
+            "Petroleum Equipment Supply Kenya",
+            "EPRA Compliance Kenya",
+            "Fuel Tank Calibration Kenya",
+            "Hydrotesting Kenya"
+          ]
         }),
       },
       {

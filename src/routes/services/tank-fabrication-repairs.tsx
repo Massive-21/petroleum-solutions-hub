@@ -6,13 +6,13 @@ export const Route = createFileRoute("/services/tank-fabrication-repairs")({
   component: TankFabricationRepairs,
   head: () => ({
     meta: [
-      { title: "Tank Fabrication & Repairs Kenya | UST & AST Structural Repairs | D'Zizi Petroleum" },
+      { title: "Tank Fabrication Kenya | Custom Fuel Tank Fabrication & Steel Tank Repairs | D'Zizi" },
       {
         name: "description",
         content:
-          "Custom fuel tank fabrication and structural repairs for USTs and ASTs in Kenya. Coating, lining and repair services. D'Zizi Petroleum Services +254 702 587 919.",
+          "Professional tank fabrication in Kenya. Custom steel AST fabrication, UST structural repairs, internal lining and post-repair hydrotesting. D'Zizi Petroleum Services — call +254 702 587 919.",
       },
-      { property: "og:title", content: "Tank Fabrication & Repairs Kenya | D'Zizi Petroleum" },
+      { property: "og:title", content: "Tank Fabrication Kenya | Custom Fuel Tanks & Repairs | D'Zizi Petroleum" },
       { property: "og:url", content: "https://dzizipetroleum.co.ke/services/tank-fabrication-repairs" },
     ],
     links: [{ rel: "canonical", href: "https://dzizipetroleum.co.ke/services/tank-fabrication-repairs" }],
@@ -22,8 +22,9 @@ export const Route = createFileRoute("/services/tank-fabrication-repairs")({
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "Service",
-          name: "Tank Fabrication & Repairs Kenya",
-          description: "Custom fabrication and structural repairs for underground and above-ground petroleum storage tanks in Kenya.",
+          name: "Tank Fabrication Kenya",
+          alternateName: ["Fuel Tank Fabrication Kenya", "Steel Tank Fabrication Kenya", "Tank Repairs Kenya"],
+          description: "Custom steel tank fabrication and structural repairs for underground (UST) and above-ground (AST) petroleum storage tanks in Kenya. Includes internal lining, coating, post-repair hydrotesting and calibration.",
           url: "https://dzizipetroleum.co.ke/services/tank-fabrication-repairs",
           provider: {
             "@type": "LocalBusiness",
@@ -33,6 +34,23 @@ export const Route = createFileRoute("/services/tank-fabrication-repairs")({
           },
           areaServed: { "@type": "Country", name: "Kenya" },
           serviceType: "Tank Fabrication and Repair",
+          offers: {
+            "@type": "Offer",
+            description: "Custom above-ground steel tank fabrication and UST structural repairs. Competitive pricing. Call for a free assessment.",
+            areaServed: { "@type": "Country", name: "Kenya" },
+          },
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Home", item: "https://dzizipetroleum.co.ke" },
+            { "@type": "ListItem", position: 2, name: "Services", item: "https://dzizipetroleum.co.ke/services" },
+            { "@type": "ListItem", position: 3, name: "Tank Fabrication Kenya", item: "https://dzizipetroleum.co.ke/services/tank-fabrication-repairs" },
+          ],
         }),
       },
     ],
@@ -42,9 +60,9 @@ export const Route = createFileRoute("/services/tank-fabrication-repairs")({
 function TankFabricationRepairs() {
   return (
     <ServicePage
-      title="Tank Fabrication & Repairs Kenya"
-      tagline="Custom steel tank fabrication and structural repairs for underground and above-ground petroleum storage tanks across Kenya."
-      description="When tanks are damaged, corroded or need structural modification, D'Zizi Petroleum Services provides expert assessment and repair. We also fabricate custom above-ground steel tanks to specification for sites where standard sizes are unsuitable."
+      title="Tank Fabrication Kenya"
+      tagline="Custom steel tank fabrication and structural repairs for underground and above-ground petroleum storage tanks across Kenya — competitive pricing, certified results."
+      description="When tanks are damaged, corroded or need structural modification, D'Zizi Petroleum Services provides expert assessment and repair. We also fabricate custom above-ground steel tanks to specification for sites where standard sizes are unsuitable. As one of Kenya's experienced petroleum engineering companies, our tank fabrication work includes post-repair hydrotesting and re-calibration with full EPRA-accepted certification."
       image={img}
       imageAlt="Tank fabrication and repairs Kenya"
       bullets={[
@@ -77,6 +95,14 @@ function TankFabricationRepairs() {
         {
           q: "Is a repaired tank re-calibrated?",
           a: "Yes. Any structural repair or modification to a storage tank requires re-calibration. We carry out post-repair hydrotesting and calibration and issue updated certificates.",
+        },
+        {
+          q: "What is the cost of tank fabrication in Kenya?",
+          a: "Tank fabrication costs depend on the tank size, material specification and complexity of the job. D'Zizi Petroleum Services provides competitive pricing with no-obligation quotes. Call +254 702 587 919 with your tank size and requirements for an accurate price.",
+        },
+        {
+          q: "Do you offer tank fabrication outside Nairobi?",
+          a: "Yes. D'Zizi Petroleum Services carries out tank fabrication and repair work across Kenya including Mombasa, Kisumu, Eldoret, Nakuru and all major towns. We transport fabricated tanks to site and handle installation.",
         },
       ]}
     />

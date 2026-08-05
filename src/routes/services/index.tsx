@@ -19,16 +19,51 @@ export const Route = createFileRoute("/services/")({
   component: ServicesIndex,
   head: () => ({
     meta: [
-      { title: "Petroleum Services Kenya | Installation, Hydrotesting, Calibration – D'Zizi" },
+      { title: "Petrol Station Companies Kenya | Petroleum Services | D'Zizi Petroleum" },
       {
         name: "description",
         content:
-          "D'Zizi Petroleum Services: petrol station installation, hydrotesting, tank calibration, equipment sales and maintenance across Nairobi, Mombasa, Kisumu and all of Kenya.",
+          "D'Zizi Petroleum is one of Kenya's leading petrol station companies. We offer petrol station installation, tank fabrication, hydrotesting, calibration and maintenance across all 47 counties.",
       },
-      { property: "og:title", content: "Petroleum Services Kenya | D'Zizi Petroleum" },
+      { property: "og:title", content: "Petrol Station Companies Kenya | Petroleum Services | D'Zizi Petroleum" },
       { property: "og:url", content: "https://dzizipetroleum.co.ke/services" },
     ],
     links: [{ rel: "canonical", href: "https://dzizipetroleum.co.ke/services" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Home", item: "https://dzizipetroleum.co.ke" },
+            { "@type": "ListItem", position: 2, name: "Petroleum Services Kenya", item: "https://dzizipetroleum.co.ke/services" },
+          ],
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "ItemList",
+          name: "Petroleum Services Kenya — D'Zizi Petroleum Services Limited",
+          description: "Complete list of petroleum services offered by one of Kenya's leading petrol station companies.",
+          url: "https://dzizipetroleum.co.ke/services",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Petrol Station Installation Kenya", url: "https://dzizipetroleum.co.ke/services/petrol-station-installation" },
+            { "@type": "ListItem", position: 2, name: "Underground Fuel Tank Installation", url: "https://dzizipetroleum.co.ke/services/underground-fuel-tank-installation" },
+            { "@type": "ListItem", position: 3, name: "Fuel Dispenser Installation", url: "https://dzizipetroleum.co.ke/services/fuel-dispenser-installation" },
+            { "@type": "ListItem", position: 4, name: "Tank Fabrication Kenya", url: "https://dzizipetroleum.co.ke/services/tank-fabrication-repairs" },
+            { "@type": "ListItem", position: 5, name: "Hydrotesting Kenya", url: "https://dzizipetroleum.co.ke/services/hydrotesting" },
+            { "@type": "ListItem", position: 6, name: "Tank Calibration Kenya", url: "https://dzizipetroleum.co.ke/services/tank-calibration" },
+            { "@type": "ListItem", position: 7, name: "EPRA Compliance Support", url: "https://dzizipetroleum.co.ke/services/epra-compliance" },
+            { "@type": "ListItem", position: 8, name: "Petrol Station Maintenance Kenya", url: "https://dzizipetroleum.co.ke/services/petrol-station-maintenance" },
+            { "@type": "ListItem", position: 9, name: "Petroleum Equipment Sales", url: "https://dzizipetroleum.co.ke/services/petroleum-equipment-sales" },
+            { "@type": "ListItem", position: 10, name: "Canopy Fabrication & Installation", url: "https://dzizipetroleum.co.ke/services/canopy-fabrication-installation" },
+          ],
+        }),
+      },
+    ],
   }),
 });
 
@@ -148,10 +183,10 @@ function ServicesIndex() {
     <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6">
       <p className="text-sm font-semibold uppercase tracking-wider text-primary">Services</p>
       <h1 className="mt-2 max-w-3xl text-4xl font-extrabold sm:text-5xl">
-        End-to-end petroleum services for Kenyan operators.
+        One of Kenya's Leading Petrol Station Companies
       </h1>
       <p className="mt-4 max-w-2xl text-lg text-muted-foreground">
-        From new petrol station builds to keeping your existing site running, we deliver every stage in-house.
+        D'Zizi Petroleum Services is one of Kenya's most trusted petrol station companies. From new petrol station installation and tank fabrication to hydrotesting, calibration and ongoing maintenance — we deliver every stage in-house across all 47 counties.
       </p>
 
       <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
